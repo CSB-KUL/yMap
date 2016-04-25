@@ -1,2 +1,2 @@
 # yMap
-An Automated Approach to Map Experimental Data to Yeast Protein Modifications and Functional Regions
+An automated method to map yeast variants to proteins modifications and functional regions
