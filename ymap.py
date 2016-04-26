@@ -10,7 +10,7 @@ import webbrowser
 import orange
 from orangecontrib.bio import go    # needs to install orange bioinformatics: #http://pythonhosted.org/Orange-Bioinformatics/#installation
 ontology = go.Ontology()
-annotations = go.Annotations("sgd", ontology=ontology)  #protein annotations for yeast genome, can be changed to any genome
+annotations = go.Annotations("sgd", ontology=ontology)  
 
 
 """With the exponential growth of Posttranslational modifications (PTMs) 
@@ -40,7 +40,7 @@ class codon_from_protein_file:
         request.add_header('User-Agent', 'Python %s')
         response = urllib2.urlopen(request)
         page = response.read()
-        file = open('gff.txt','w')  #output file for next method
+        file = open('gff.txt','w')  
         file.write(page)
         file.close()
         
@@ -75,8 +75,8 @@ class codon_from_protein_file:
         file.write(page1)
         file.close()
 
-    def id_map(self, file_id, frmt):        #file_id = yeastID
-        file2= open('d_id_map.txt', 'w')    #d_id_map = domain ID map
+    def id_map(self, file_id, frmt):        
+        file2= open('d_id_map.txt', 'w')    
         file = open(file_id, 'r')
         for line in file:
             line=line.split()
@@ -91,7 +91,7 @@ class codon_from_protein_file:
                                 file2.write(result+'\n')
 
 
-    def cc_mapping(self, mu, frmt_file): #frmt_file = frmt.txt (from frmt()) mu= d_id_map.txt(at genomic level()
+    def cc_mapping(self, mu, frmt_file):
         """continuation of codon calculation (cc) with formated gff file, the file product is the protein id with mutated codons"""
         file4 = open('mutation.txt', 'w')
         f_file=open(frmt_file,'r')
@@ -151,7 +151,7 @@ def revcomp(dna, reverse=True, complement=True):
         result_as_list = [base for base in dna]
       return ''.join(result_as_list)
 
-def mutation_file(file1, file2): #file1 = file contains mutations at genomic coordinates; file2 = d_id_map.txt (files comes from gff)
+def mutation_file(file1, file2):
     t = open('mutation.txt', 'w')
     mut = open(file1, 'rU')
     for m in mut:
@@ -164,7 +164,7 @@ def mutation_file(file1, file2): #file1 = file contains mutations at genomic coo
                     take1= take.split()
                     cod = int(take1[4])-int(take1[3])
                     c = int(cod)/3
-                    with open('gff.txt', 'rU') as orf:      #open gff file as a fasta file to read the sequences
+                    with open('gff.txt', 'rU') as orf:  
                         linee = orf.readlines()[23078:]
                         up = (x[1] for x in groupby(linee, lambda line: line[0] == ">"))
                         for head in up:
@@ -230,12 +230,12 @@ class YGtPM:
         request.add_header('User-Agent', 'Python %s')
         response = urllib2.urlopen(request)
         page = response.read()
-        file = open('uniprot_mod_raw.txt','w')  #output file for next method
+        file = open('uniprot_mod_raw.txt','w')  
         file.write(page)
         file.close()
         return "PTM raw file is ready for formting" 
     
-    def clean(self, file):                  #file = open('uniprot_mod_raw.txt') from previous method
+    def clean(self, file):              
         
         """ This method clean the downloaded PTMs data from web into a tsv file"""
 
@@ -522,7 +522,7 @@ class YGtPM:
 
 
    
-    #----------Mutated proteins can be seen on BioGrid db on web------------------
+    #----------Mutated proteins netwroks can be seen on BioGrid db on web------------------
     #   WARNING: requires powerful machines to work with as its expensive to open in machines with low momey
     
     def BioGrid(self):
@@ -635,11 +635,9 @@ class YGtPM:
   
 
 def interface(file, mutation):
-        #"""PTM present at the interface of two proteins and known to play role in interation (Beltrao et al. Cell 2012)"""
+    #"""PTM present at the interface of two proteins and known to play role in interation (Beltrao et al. Cell 2012)"""
     
-    #file = open('3DID_aceksites_interfaceRes_sc.txt', 'rU')
-    #file= open('3DID_phosphosites_interfaceRes_sc.txt', 'rU') 
-    #file = open('3DID_ubisites_interfaceRessc_sc.txt', 'rU')
+   
 
   out=open('interface_mutation.txt', 'w')
   f=open(file, 'rU')
@@ -668,11 +666,8 @@ def interface(file, mutation):
 
 def ppi(file,mutation):
 
-        #""" PTM present at the interface of two proteins and known to play role in interation (PTMfunc; Beltrao et al. Cell 2012)"""
-    #file= open('SC_HS_acek_interactions.txt', 'rU')
-    # file = open(SC_HS_psites_interactions_sc.txt', 'rU')
-    #file = open('SC_HS_ubi_interactions_sc,txt', 'rU')
-    #mutation = open ('mutation_file.txt')
+    #""" PTM present at the interface of two proteins and known to play role in interation (PTMfunc; Beltrao et al. Cell 2012)"""
+   
     
   out = open('ppi_mutation.txt', 'w')
   f=open(file, 'rU')
@@ -713,9 +708,7 @@ def withinPro(file, mutation):
   file1 = open('within_protein.txt', 'w')
 
     #""" PTMs (predicted to be) involved in the crosstalk within a given protein at baker's years (Minguez el 2012)"""
-        #in_file=open(sc_within_proteins.txt', 'rU')
-      #mutation = open('mutation')
-           # for example, sc_within_proteins.txt
+    
 
   f = open(file, 'rU')
   for line in f:
@@ -818,7 +811,7 @@ def hotspot(file, mutation):    #(Beltrao et al. Cell 2012) #file= open('schotsp
                                         hotspot.write(take+'\n')
                           
 
-def sum_file_map(): # file1 = summary.txt
+def sum_file_map(): 
     x = open('final_report.txt', 'w')
     fil1 = open('summary.txt')
     for fe in fil1:
