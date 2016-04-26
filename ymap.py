@@ -935,15 +935,15 @@ def data():
     except IOError:
         pass 
     try:
-        shutil.copy2(wd+'/'+'example-data'+'/'+'PTMcode+PTMfunc_data'+'/'+'3DID_aceksites_interfaceRes_sc.txt', wd)
-        shutil.copy2(wd+'/'+'example-data'+'/'+'PTMcode+PTMfunc_data'+'/'+'3DID_phosphosites_interfaceRes_sc.txt', wd)
-        shutil.copy2(wd+'/'+'example-data'+'/'+'PTMcode+PTMfunc_data'+'/'+'3DID_ubisites_interfaceRessc_sc.txt', wd) 
-        shutil.copy2(wd+'/'+'example-data'+'/'+'PTMcode+PTMfunc_data'+'/'+'SC_acet_interactions.txt', wd)
-        shutil.copy2(wd+'/'+'example-data'+'/'+'PTMcode+PTMfunc_data'+'/'+'sc_btw_proteins.txt', wd) 
-        shutil.copy2(wd+'/'+'example-data'+'/'+'PTMcode+PTMfunc_data'+'/'+'SC_psites_interactions_sc.txt', wd)
-        shutil.copy2(wd+'/'+'example-data'+'/'+'PTMcode+PTMfunc_data'+'/'+'SC_ubi_interactions_sc.txt', wd)
-        shutil.copy2(wd+'/'+'example-data'+'/'+'PTMcode+PTMfunc_data'+'/'+'sc_within_proteins.txt', wd)
-        shutil.copy2(wd+'/'+'example-data'+'/'+'PTMcode+PTMfunc_data'+'/'+'schotspot_updated.txt', wd)    
+        shutil.copy2(wd+'/'+'data'+'/'+'PTMcode+PTMfunc_data'+'/'+'3DID_aceksites_interfaceRes_sc.txt', wd)
+        shutil.copy2(wd+'/'+'data'+'/'+'PTMcode+PTMfunc_data'+'/'+'3DID_phosphosites_interfaceRes_sc.txt', wd)
+        shutil.copy2(wd+'/'+'data'+'/'+'PTMcode+PTMfunc_data'+'/'+'3DID_ubisites_interfaceRessc_sc.txt', wd) 
+        shutil.copy2(wd+'/'+'data'+'/'+'PTMcode+PTMfunc_data'+'/'+'SC_acet_interactions.txt', wd)
+        shutil.copy2(wd+'/'+'data'+'/'+'PTMcode+PTMfunc_data'+'/'+'sc_btw_proteins.txt', wd) 
+        shutil.copy2(wd+'/'+'data'+'/'+'PTMcode+PTMfunc_data'+'/'+'SC_psites_interactions_sc.txt', wd)
+        shutil.copy2(wd+'/'+'data'+'/'+'PTMcode+PTMfunc_data'+'/'+'SC_ubi_interactions_sc.txt', wd)
+        shutil.copy2(wd+'/'+'data'+'/'+'PTMcode+PTMfunc_data'+'/'+'sc_within_proteins.txt', wd)
+        shutil.copy2(wd+'/'+'data'+'/'+'PTMcode+PTMfunc_data'+'/'+'schotspot_updated.txt', wd)    
     except IOError:
         pass
     return "All required data downloaded in %s seconds" % (time.time() - start_time)
