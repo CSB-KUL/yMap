@@ -854,6 +854,12 @@ def sum_file_map():
                     if take>0:
                             x = open('final_report.txt', 'a')
                             x.write(take+'\n')
+                            continue
+                if m[4]=='Stop' and m[0]==fe[1] and fe[2] == m[1]:
+                    take2 = fe[0]+'\t'+fe[1]+'\t'+fe[2]+'\t'+m[2]+'\t'+m[3]+'\t'+m[4]+'\t'+fe[3]+'\t'+fe[4]+'\t'+fe[5]
+                    if take2>0:
+                        x = open('final_report.txt', 'a+')
+                        x.write(take2+'\n')
 
 
 
