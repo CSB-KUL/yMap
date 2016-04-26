@@ -1395,6 +1395,7 @@ def ymap():
             shutil.move(wd+"/"+'final_report.txt', wd+"/"+'yMap-results'+str(y))
             shutil.move(wd+"/"+'pvalue.txt', wd+"/"+'yMap-results'+str(y))
             shutil.move(wd+"/"+'biog.txt', wd+"/"+'yMap-results'+str(y))
+            shutil.move(wd+"/"+'summary.txt', wd+"/"+'yMap-results'+str(y))
         except IOError: 
             pass
         return "All functional data is ready in about %s seconds" % (time.time() - start_time)
