@@ -39,7 +39,7 @@ The final-report is complemented with two other files; enrichment and visualsati
    
     yMap depends on:
             
-            python 2.7
+            python 2.7.10
             Orange bioinformatics (http://pythonhosted.org/Orange-Bioinformatics/)
     
 
