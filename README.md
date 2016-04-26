@@ -17,6 +17,8 @@ yMap is a python based fast and robust automated method to map large yeast varia
                         proteins network visualisation. 
 
 
+In a user friendly was, it generates "final-report" file to report all the Non-synonymous 
+mutations that overlaps or falls inside the above mentioned proteins functional regions. 
 
 
     Contents
@@ -32,7 +34,7 @@ yMap is a python based fast and robust automated method to map large yeast varia
 
 
 
-    Installation 
+    Dependencies 
    
     yMap depends on:
             
@@ -41,8 +43,7 @@ yMap is a python based fast and robust automated method to map large yeast varia
     
 
 
-
-    Documentation
+    Usage
     
             os.chdir(../yMap)
             import ymap
@@ -50,7 +51,10 @@ yMap is a python based fast and robust automated method to map large yeast varia
             data()
             mutation_types_file()
             ymap()
-            
+        
+        
+    Documentation     
     #For complete instructions see README file
 
     
+#This work in supported by KU Leuven. 
