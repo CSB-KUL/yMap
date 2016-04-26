@@ -7,6 +7,6 @@ An automated method to map yeast variants to proteins modifications and function
 
             README: Introduction and details of functions/methods and data with a Manual - with details of how to run yMap 
 
-            Supported data: PTMcode + PTMfunc
+            (Supported) data: PTMcode + PTMfunc
 
             Example data: examples mutations files
