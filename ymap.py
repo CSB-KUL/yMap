@@ -28,8 +28,6 @@ annotations = go.Annotations("sgd", ontology=ontology)
 
 
 
-
-
 #/////////////////////// Codon calculation in case mutation position is not in proteins //////////////////////////////////////////////////////////
 
 
