@@ -28,7 +28,12 @@ annotations = go.Annotations("sgd", ontology=ontology)
 
 summary = open('summary.txt', 'w')
 
+
+
 #/////////////////////// Codon calculation in case mutation position is not in proteins //////////////////////////////////////////////////////////
+
+
+
 
 class codon_from_protein_file:
 
@@ -108,7 +113,11 @@ class codon_from_protein_file:
                         file4.write(q2+'\n')
 
 
+
+
 #////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ Mutation type (Synon | Non-Synon | Stop codon) module (see exmple data) \\\\\\\\\\\\\\\\\\\\\///////////////////////
+
+
 
 genetic_code = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
@@ -217,7 +226,11 @@ def mutation_file(file1, file2):
                                         t = open('mutation.txt', 'a+')
                                         t.write(pick+'\n')
 
+
+
 # //////////////////\\\\\\\\\\\\\\\\\\\\\\ UniProt data //////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
 
 class YGtPM:
 
@@ -312,6 +325,8 @@ class YGtPM:
                                 file3= open('PTM_id_file.txt', 'a')
                                 file3.write(result3+'\n')
                             
+   
+   
    #-------Proteins PTMs mapping (uniprot_mod_raw.txt) from PTMdata() ---------                     
 
     def ptm_map(self, mutation_file, PTM_id_file):
@@ -366,6 +381,8 @@ class YGtPM:
                                 id_domain=open('id_domain.txt', 'a')
                                 id_domain.write(take+'\n')
 
+
+
 #-------Proteins domains mapping (uniprot_mod_raw.txt) from PTMdata() ---------
 
     def dmap(self, file1, file2):               #file2 = id_domain.txt
@@ -385,8 +402,13 @@ class YGtPM:
                                 mp.write(take+'\n')
                                 summary.write(line2[0]+'\t'+line1[0]+'\t'+line1[1]+'\t'+line2[5]+'\t'+'domains'+'\t'+'UniProt'+'\n')  
 
+  
+  
+  
             
 #////////////////////\\\\\\\\\\\\\\\\ Protein Enrichment analysis with Orange module ////////////////////\\\\\\\\\\\\\\\\\\
+  
+  
     
     def enrich(self, file):
 
@@ -420,6 +442,8 @@ class YGtPM:
                         out = open('pvalue.txt','a+')
                         out.write(str(take3))
 
+    
+    
     #-------Proteins active and binding sites mapping (uniprot_mod_raw.txt) from PTMdata() ---------
 
     def ab(self, file): #file='uniprot_mod_raw.txt'
@@ -471,6 +495,8 @@ class YGtPM:
                             out.write(take+'\n')
                             summary.write(a[2]+'\t'+a[0]+'\t'+m[1]+'\t'+ a[3]+'\t'+'Active/Binding site'+'\t'+'UniProt'+'\n') 
 
+    
+    
        #-------Proteins nucleotide binding motifs mapping (uniprot_mod_raw.txt) from PTMdata() ---------
 
     def nucleotide(self):
@@ -525,6 +551,7 @@ class YGtPM:
     #----------Mutated proteins netwroks can be seen on BioGrid db on web------------------
     #   WARNING: requires powerful machines to work with as its expensive to open in machines with low momey
     
+    
     def BioGrid(self):
         #""" downloads BioGrid ids in raw form for further processing including mapping and web browsing"""
         url='http://www.uniprot.org/uniprot/?query=yeast&fil=organism%3A%22Saccharomyces%20cerevisiae%20(strain%20ATCC%20204508%20%2F%20S288c)%20(Baker%27s%20yeast)%20%5B559292%5D%22&sort=score&format=tab&columns=id,database(BioGrid)'
@@ -565,7 +592,10 @@ class YGtPM:
             webbrowser.open(url + f[1])
 
 
+    
     #----------Mutated proteins structural aspects can be accessed in the structural regions from PDB------------------
+
+
 
     def pdb_c(self, file):
         stru = open('pdb.txt', 'w')
@@ -587,7 +617,7 @@ class YGtPM:
                         if len(tak3)>0:
                             stru = open('pdb.txt', 'a')
                             stru.write(tak3+'\n')
-#NOTE: mutation files maped to the yeastID file
+#NOTE: mutation files mapped to the yeastID file
     def mu_map(self):
         f = open('mutation_id.txt', 'w')
         a = open('mutation.txt')
@@ -620,6 +650,8 @@ class YGtPM:
                                 summary = open('summary.txt', 'a+')
                                 s.write(take+'\n')
                                 summary.write(m[0]+'\t'+m[2]+'\t'+m[3]+'\t'+i[4]+'\t'+i[1]+'\t'+'UniProt'+'\n')
+
+
 
 
 #/////////////////// Functional PTMs data from other resources than UniProt (know to play role in PPI and cross-talk)/////////////////////////////////////////
@@ -830,6 +862,8 @@ def sum_file_map():
 #//////////////////////////////////////////////////////////////////////////////////////////////////
 #///////                        USEAGE       (Optional)                    ////////////////////////
 #/////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 
 c = YGtPM()
 wd = os.getcwd()
@@ -1313,6 +1347,8 @@ def functional_data():
 
 
 #------- Final module of ymap package for executing all the modules ---------
+
+
 
 def ymap():
     start_time = time.time()
