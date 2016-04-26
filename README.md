@@ -1,13 +1,20 @@
 # yMap
 
-yMap is a python based automated method to map yeast variants to 
+yMap is a python based automated method to map large yeast variants to 
+            
             proteins post translational modifications 
+            
             and other functional regions like:
-                proteins domains, 
-                proteins-DNA binding domains, 
-                proteins structural regions, 
-                proteins active and binding sites mapping 
-                proteins network visualisation. 
+                            
+                        proteins domains, 
+                            
+                        proteins-DNA binding domains, 
+                        
+                        proteins structural regions, 
+                
+                        proteins active and binding sites mapping 
+                
+                        proteins network visualisation. 
 
 
     Contents
