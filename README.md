@@ -4,7 +4,7 @@ and functional regions like proteins domains, proteins-DNA binding domains, prot
 proteins active and binding sites mapping and proteins network visualisation. 
 
 
-    Contents
+   # Contents
 
             scripts: ymap.py
 
@@ -16,12 +16,13 @@ proteins active and binding sites mapping and proteins network visualisation.
 
 
 
-    Installation 
-    
+   # Installation 
+    # yMap depends on:
+            
             yMap is depends on Orange bioinformatics (http://pythonhosted.org/Orange-Bioinformatics/)
     
 
-    Documentation
+   # Documentation
     
             os.chdir(../yMap)
             import ymap
@@ -30,6 +31,6 @@ proteins active and binding sites mapping and proteins network visualisation.
             mutation_types_file()
             ymap()
             
-            
+    #For complete instructions see README file
 
     
