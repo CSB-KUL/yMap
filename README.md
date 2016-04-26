@@ -41,6 +41,7 @@ The final-report is complemented with two other files; enrichment and visualsati
             
             python 2.7.10
             Orange bioinformatics (http://pythonhosted.org/Orange-Bioinformatics/)
+                        $pip install Orange-Bioinformatics
     
 
 
