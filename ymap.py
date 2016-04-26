@@ -26,7 +26,7 @@ annotations = go.Annotations("sgd", ontology=ontology)
     easily """
 
 
-summary = open('summary.txt', 'w')
+
 
 
 
@@ -34,7 +34,7 @@ summary = open('summary.txt', 'w')
 
 
 
-
+summary = open('summary.txt', 'w')
 class codon_from_protein_file:
 
     def gff(self):
