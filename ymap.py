@@ -864,7 +864,10 @@ def sum_file_map():
 
 
 #//////////////////////////////////////////////////////////////////////////////////////////////////
-#///////                        USEAGE       (Optional)                    ////////////////////////
+#                               USEAGE       (Optional) 
+#--------------------------------------------------------------------------------------------------
+#This usage strategy is optional, and a user can use above written codes in any convenient way as
+#required by experiemental settings and data interpretation
 #/////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -873,10 +876,8 @@ c = YGtPM()
 wd = os.getcwd()
 co=codon_from_protein_file()
 
-#mutation is a proteins mutations containing file, either you can change the name of your file you 'mutation' or change the name
-# of 'mutation' file in this function
 
-def data():
+def data(): #this function will download and clean required data to run ymap methods smoothly
     start_time = time.time()
     try:
         dat = c.PTMdata()
@@ -952,7 +953,7 @@ def data():
         pass
     return "All required data downloaded in %s seconds" % (time.time() - start_time)
 
-def mutation_types_file():
+def mutation_types_file():  #mutation type and amino acid calculation where ref. and mutant base known
     start_time = time.time()
     if not os.path.exists('mutated_proteins.txt'):
         raise StopIteration('because of missing mutation file with name "mutated_proteins.txt"')
@@ -964,7 +965,7 @@ def mutation_types_file():
     return "Mutations with mutations types are available to map on functional entities"
 
 
-def code():
+def code(): #codon calculations where ref and mutant base unknown
     start_time = time.time()
     try:
         co.cc_mapping('mutation1.txt', 'd_id_map.txt')
@@ -972,7 +973,7 @@ def code():
             pass
     return "codons are available to map on functional entities"
 
-def ptm():
+def ptm():  #PTMs mapping to mutations
     start_time = time.time()
     if not os.path.exists('mutation.txt'):
         raise StopIteration('because of missing mutation file')
@@ -998,7 +999,7 @@ def ptm():
             pass
     return "PTMs mapped in %s seconds" % (time.time() - start_time)
 
-def domain():
+def domain():   #protein domain mapping
     start_time = time.time()
     if not os.path.exists('mutation.txt'):
         raise StopIteration('because of missing mutation file')
@@ -1027,7 +1028,7 @@ def domain():
             pass
     return "Domains mapped in %s seconds" % (time.time() - start_time)
     
-def nucleo():
+def nucleo():   #DNA-protein binding motif mapping
     start_time = time.time()
     if not os.path.exists('mutation.txt'):
         raise StopIteration('because of missing mutation file')
@@ -1056,7 +1057,7 @@ def nucleo():
             pass
     return "Nucleotide_binding domains mapped in %s seconds" % (time.time() - start_time)
 
-def ab():
+def ab():   #active and binding site mapping
     start_time = time.time()
     if not os.path.exists('mutation.txt'):
             raise StopIteration('because of missing mutation file')
@@ -1082,7 +1083,7 @@ def ab():
             pass
     return "Active-Binding proteins sites mapped in %s seconds" % (time.time() - start_time)
 
-def struc_map():
+def struc_map():    #structural regions mapping
     start_time = time.time()
     if not os.path.exists('mutation.txt'):
         raise StopIteration('because of missing mutation file')
@@ -1299,7 +1300,7 @@ def hotS():
         return "run time is %s seconds" % (time.time() - start_time)
 
 
-def uniprot_data():  #to run all three (ptm, domain and ab () functions, all together)
+def uniprot_data():  #to run all (like ptm, domain and ab () functions) all together
     try:
         ptm()
     except IOError:
