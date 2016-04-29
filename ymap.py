@@ -1,5 +1,6 @@
 #!/usr/bin/python
- 
+#
+# year of release ! 2016
 #
 # With the exponential growth of Posttranslational modifications (PTMs) 
 # data and and lack of characterisation of all the PTM-types. Its important
