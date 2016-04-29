@@ -244,7 +244,7 @@ def mutation_file(file1, file2):
 
 class YGtPM:
 
-    def PTMdata(self):
+    def pTMdata(self):
 
         """download modified residues data from uniprot and save in tsv frmt text time"""
 
@@ -305,7 +305,7 @@ class YGtPM:
                                 out.write(pppp+'\n')
 
 
-    def ID(self):
+    def iD(self):
 
         """ This maethod retrieves the different ID types for maping """
 
@@ -319,9 +319,11 @@ class YGtPM:
         file_1.close()
         
             
-    def Map(self, file_id, file_PTMs):          #file_PTMs = PTMs.txt from clean()
+    def pmap(self, file_id, file_PTMs):          
 
-        """ if proteins ids are not SDG or uniprot or common names, this method maps the ids"""
+        """ if proteins ids are not SDG or uniprot or common names, this method maps the ids 
+        #file_PTMs = PTMs.txt from clean()
+        """
 
         with open('PTM_id_file.txt', 'w') as file3:
             with open(file_id, 'r') as file_id_name:
@@ -575,7 +577,7 @@ class YGtPM:
                                         summary.write(line2[0]+'\t'+line1[0]+'\t'+line1[1]+'\t'+line2[4]+'\t'+'Nucleotide-Binding'+'\t'+'UniProt'+'\n')
 
 
-    def BioGrid(self):
+    def bioGrid(self):
 
         """ downloads BioGrid ids in raw form for further processing including mapping and web browsing
         WARNING: requires powerful machines to work with as its expensive to open in machines with low momey
@@ -909,7 +911,7 @@ def data():
 
     start_time = time.time()
     try:
-        dat = c.PTMdata()
+        dat = c.pTMdata()
     except IOError:
         pass
     try:
@@ -917,11 +919,11 @@ def data():
     except IOError:
         pass
     try:
-        i = c.ID()
+        i = c.iD()
     except IOError:
         pass
     try:
-        m = c.Map('yeastID.txt', 'PTMs.txt')
+        m = c.pmap('yeastID.txt', 'PTMs.txt')
     except IOError:
         pass
     try:
@@ -941,7 +943,7 @@ def data():
     except IOError:
             pass
     try:
-        bio=c.BioGrid()
+        bio=c.bioGrid()
     except IOError:
             pass
     try:
