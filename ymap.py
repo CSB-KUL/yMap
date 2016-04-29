@@ -72,7 +72,7 @@ class codon_from_protein_file:
                             result = result[3].split(';')
                             results = result[0].split('=')
                             result2 = results[1]+'\t'+word[3]+'\t'+word[4]+'\t'+word[6]
-                            with open('frmt.txt','w') as file2:
+                            with open('frmt.txt','a') as file2:
                                 file2.write(result2+'\n')
                     
     
