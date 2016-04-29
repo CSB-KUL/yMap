@@ -60,19 +60,19 @@ class codon_from_protein_file:
 
     def frmt(self, file_gff):
         """This method format the gff file into a tsv one, with protein id, start and end with strand orientation"""
-        file2 = open('frmt.txt','w')
-        file_gff=open(file_gff, 'r')
-        for line in file_gff:
-            if not line.startswith('##') and not line.startswith('#'):
-                word = line.split()
-                if len(word)!=1 and word[2]=='gene':
-                    result = word[3]+'\t'+word[4]+'\t'+word[6]+'\t'+word[8]
-                    result = result.split()
-                    result = result[3].split(';')
-                    results = result[0].split('=')
-                    result2 = results[1]+'\t'+word[3]+'\t'+word[4]+'\t'+word[6]
-                    file2 = open('frmt.txt','a')
-                    file2.write(result2+'\n')
+        with open('frmt.txt','w') as file4:
+            with open(file_gff, 'r') as file_gff:
+                for line in file_gff:
+                    if not line.startswith('##') and not line.startswith('#'):
+                        word = line.split()
+                        if len(word)!=1 and word[2]=='gene':
+                            result = word[3]+'\t'+word[4]+'\t'+word[6]+'\t'+word[8]
+                            result = result.split()
+                            result = result[3].split(';')
+                            results = result[0].split('=')
+                            result2 = results[1]+'\t'+word[3]+'\t'+word[4]+'\t'+word[6]
+                            file2 = open('frmt.txt','a')
+                            file2.write(result2+'\n')
                     
     
     def ID(self):
@@ -88,42 +88,44 @@ class codon_from_protein_file:
         file.write(page1)
         file.close()
 
-    def id_map(self, file_id, frmt):        
-        file2= open('d_id_map.txt', 'w')    
-        file = open(file_id, 'r')
-        for line in file:
-            line=line.split()
-            with open(frmt, 'r') as fr:
-                for f in fr:
-                    f=f.split()
-                    if len(line)>2:
-                        if line[1]==f[0]:
-                            result= line[0]+'\t'+line[1]+'\t'+line[2]+'\t'+f[1]+'\t'+f[2]+'\t'+f[3]
-                            if result>0:
-                                file2= open('d_id_map.txt', 'a')
-                                file2.write(result+'\n')
+    def id_map(self, file_id_name, frmt):        
+        with open('d_id_map.txt', 'w') as file2:
+            with open(file_id, 'r') as file_id_name:
+                for line in file:
+                    line=line.split()
+                    with open(frmt, 'r') as fr:
+                        for f in fr:
+                            f=f.split()
+                            if len(line)>2:
+                                if line[1]==f[0]:
+                                result= line[0]+'\t'+line[1]+'\t'+line[2]+'\t'+f[1]+'\t'+f[2]+'\t'+f[3]
+                                if result>0:
+                                    file2= open('d_id_map.txt', 'a')
+                                    file2.write(result+'\n')
 
 
 
     def cc_mapping(self, mu, frmt_file):
         """continuation of codon calculation (cc) with formated gff file, the file product is the protein id with mutated codons"""
-        file4 = open('mutation.txt', 'w')
-        f_file=open(frmt_file,'r')
-        for line in f_file:
-            line=line.split()
-            with open(mu, 'r') as m:
-                for m in m:
-                    m=m.split()
-                    if line[2]==m[0]:
-                        q= int(float(line[4]))-int(float(m[1]))
-                        q1=int(q)/3
-                        q2=m[0]+'\t'+str(q1)
-                        file4 = open('mutation.txt', 'a')
-                        file4.write(q2+'\n')
+       with open('mutation.txt', 'w') as file4:
+            with open(frmt_file,'r') as f_file:
+                for line in f_file:
+                    line=line.split()
+                    with open(mu, 'r') as m:
+                        for m in m:
+                            m=m.split()
+                            if line[2]==m[0]:
+                                q= int(float(line[4]))-int(float(m[1]))
+                                q1=int(q)/3
+                                q2=m[0]+'\t'+str(q1)
+                                file4 = open('mutation.txt', 'a')
+                                file4.write(q2+'\n')
+                                
 
 #\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 #\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ Mutation type (Synon | Non-Synon | Stop codon) module (see exmple data) \\\\\\\\\\\\\\\\\\\\\
 #//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 genetic_code = {
     'ATA':'I', 'ATC':'I', 'ATT':'I', 'ATG':'M',
