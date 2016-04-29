@@ -59,8 +59,12 @@ The final-report is complemented with two other files; enrichment and visualsati
         
 #Documentation     
     
-    For complete instructions see README file
+            For complete instructions see README file
 
     
+#Troubleshoots 
+
+            To learn about the types of problems and how to solve them; see README file
+
 
 This work in supported by KU Leuven. 
