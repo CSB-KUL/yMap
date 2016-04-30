@@ -44,7 +44,7 @@ annotations = go.Annotations("sgd", ontology=ontology)
 #//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-class codon_from_protein_file:
+class Codon_from_protein_file:
 
     def gff(self):
         """ The genomic coordinates downloaded in gff formate for further processing to calculate mutated codons, if not
@@ -902,7 +902,7 @@ def sum_file_map():
 
 c = YGtPM()
 wd = os.getcwd()
-co=codon_from_protein_file()
+co = Codon_from_protein_file()
 
 
 def data(): 
