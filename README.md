@@ -52,9 +52,10 @@ The final-report is complemented with two other files; enrichment and visualsati
             os.chdir(../yMap)
             import ymap
             from ymap import *
-            data()
-            mutation_types_file()
-            ymap()
+            data() 
+            ymap_genes()            #if starting file contains the mutations at chromosomes leve with genetic coordinates.
+            or
+            ymap_proteins()         #if starting file contains the mutations at proteins level.
         
         
 #Documentation     
