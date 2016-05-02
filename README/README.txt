@@ -115,13 +115,13 @@ Functions name		Description
 
 mutation_types_file()		to get the mutations quality (Synonymous, Non-Synonymous or Stop codon) in the file containing genome coordinates of mutation with knowledge of ref. and mutated base; furthermore the ‘mutation.txt’ from this code will be used to further other methods n map to get the summary file.
 
-PTMdata()		Downloads UpiProt data as a raw txt file (uniprot_mod_raw.txt)
+pTMdata()		Downloads UpiProt data as a raw txt file (uniprot_mod_raw.txt)
 
 clean()			cleans file 'uniprot_mod_raw.txt' into 'PTMs.txt'
 
-ID()			Downloads different yeast IDs from UniProt (yeastID.txt)
+iD()			Downloads different yeast IDs from UniProt (yeastID.txt)
 
-Map()			combine yeast PTM and IDs into one file(PTM_id_file.txt)
+pmap()			combine yeast PTM and IDs into one file(PTM_id_file.txt)
 
 ptm_map()		Gives a file containing mutated proteins at PTMs with their positions 
 
@@ -152,7 +152,6 @@ preWeb()		combines mutated proteins with uniprot_bioGrid.txt in a file (biog.txt
 
 Web()			Automated opening the web links of BioGrid db for further network and pathways analyses of mutated proteins. WARNING. It requires powerful machines to open new tabs for each multiple proteins
 
-cc() (optional) 	if a user has a file contains mutations in genomic coordinates without knowledge of ref. and mutated base (genome or gene) instead of proteins, he can run cc() function to get mutations in the proteins
 ymap()			runs all the methods included in ymap (excluding data() and mutation_types_file())  and returns different data folders for each type of data processed for our mutational data.
 
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -164,17 +163,16 @@ First run:
 import ymap
 from ymap import *
 
-data()			(first time run only) NOTE: before run the data() method, the file PTMcode+PTMfunc_data/sc_btw_proteins.txt.zip needed to be unzipped
+data()			(first time run only) NOTE: before run the data() method, the file PTMcode+PTMfunc_data/sc_btw_proteins.txt.zip needed to be unzipped. (Note: data() only needed to be run once, for a first time user, otherwise use it to update the existing data, when required.)
 
-Second, copy the mutation file into the ymap folder to prepare the mutation file by running (see example data):
+And then, run ymap code to get a result folder (yMap-results) contains all the mutational data into sub folders and a final-report file:
 
-mutation_types_file()	returns a file for the processing to data in ymap ( provided that the mutation file name is mutated_proteins.txt or change the name of file accordingly in this method).	 
+ymap_genes()			runs all the methods on starting file with GENETIC coordinate level mutations included in ymap and returns different data folders for each type of data processed for our mutational data.
+OR
 
-Lastly, run ymap code to get a result folder (yMap-results) contains all the mutational data into sub folders and a final-report file:
+ymap_proteins()			runs all the methods on starting file with proteins level mutations included in ymap and returns different data folders for each type of data processed for our mutational data.
 
-ymap()			runs all the methods included in ymap and returns different data folders for each type of data processed for our mutational data.
-
-NOTE: For every new file contains mutations, run only last two functions, mutation_types_file() and ymap().
+NOTE: For every new file contains mutations, only run ymap_genes() or ymap_proteins().
  
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
