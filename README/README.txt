@@ -167,10 +167,10 @@ data()			(first time run only) NOTE: before run the data() method, the file PTMc
 
 And then, run ymap code to get a result folder (yMap-results) contains all the mutational data into sub folders and a final-report file:
 
-ymap_genes()			runs all the methods on starting file with GENETIC coordinate level mutations included in ymap and returns different data folders for each type of data processed for our mutational data.
+ymap_genes()			runs all the methods (on starting file with GENETIC coordinate level mutations (yMap/example_mutation_files/mutated_proteins.txt)) included in ymap and returns different data folders for each type of data processed for our mutational data.
 OR
 
-ymap_proteins()			runs all the methods on starting file with proteins level mutations included in ymap and returns different data folders for each type of data processed for our mutational data.
+ymap_proteins()			runs all the methods (on starting file with proteins level mutations (yMap/example_mutation_files/mutation.txt))included in ymap and returns different data folders for each type of data processed for our mutational data.
 
 NOTE: For every new file contains mutations, only run ymap_genes() or ymap_proteins().
  
