@@ -180,12 +180,12 @@ NOTE: For every new file contains mutations, only run ymap_genes() or ymap_prote
 //////////////////// Troubleshoots \\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 
-1 - The finals of annotated PTMs are missing or less them nine.
+1 - The files of annotated PTMs are missing or less them nine.
 
 Reason: forget to unzip the data/PTMcode+PTMfunc_data/sc_btw_proteins.txt.zip
 how to correct: unzip the sc_btw_proteins.txt.zip file and run the data()
 
-2 - mutation_types_file() fail to complete with error message: 
+2 - ymap_genes() fail to complete with error message: 
 
 “IndexError: string index out of range”
 
