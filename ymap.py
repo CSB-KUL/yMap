@@ -258,7 +258,7 @@ class YGtPM:
                                 out = open('PTMs.txt', 'a+')
                                 out.write(ppp+'\n')
                                 continue
-                        if line[2] == 'Cross-link': #ubiquitination
+                        if line[2] == 'Cross-link': 
                             ccc = line[0]+'\t'+line[4]+'\t'+line[8]
                             cc = ccc.split()
                             cc = cc[2].split('=')
