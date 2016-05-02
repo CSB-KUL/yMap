@@ -146,7 +146,7 @@ n_map()			maps the file from previous method to yeastID file
 
 nucleotide_map()	maps mutations to the nucleotide binding motifs
 
-BioGrid()		Downloads BioGrid ids of yeast proteins from UniProt (uniprot_bioGrid.txt)
+bioGrid()		Downloads BioGrid ids of yeast proteins from UniProt (uniprot_bioGrid.txt)
 
 preWeb()		combines mutated proteins with uniprot_bioGrid.txt in a file (biog.txt)
 
@@ -172,7 +172,7 @@ OR
 
 ymap_proteins()			runs all the methods (on starting file with proteins level mutations (yMap/example_mutation_files/mutation.txt))included in ymap and returns different data folders for each type of data processed for our mutational data.
 
-NOTE: For every new file contains mutations, only run ymap_genes() or ymap_proteins().
+NOTE: For every new mutations file, only run ymap_genes() or ymap_proteins(), since running data() everytime is not needed. 
  
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
