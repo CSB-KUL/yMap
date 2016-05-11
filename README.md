@@ -1,6 +1,6 @@
 # yMap
 
-yMap is a python based fast and robust automated method to map large yeast variants to 
+yMap is a python based fast and robust automated method to map large yeast variants data to 
             
             - proteins post-translational modifications 
                             
