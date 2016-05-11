@@ -189,7 +189,7 @@ how to correct: unzip the sc_btw_proteins.txt.zip file and run the data()
 
 “IndexError: string index out of range”
 
-Reason: the mutations positions are are fall outside the start and end of the respective proteins
+Reason: the mutations positions fall outside the start and end of the respective proteins
 
 how to correct: Look at the mutations of mutations and compare them manually if the correspond to start and end
 of a protein, if not correct the problem and rerun the method mutation_types_file().
