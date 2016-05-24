@@ -4,11 +4,13 @@
 #
 # With the exponential growth of Posttranslational modifications (PTMs) 
 # data and and lack of characterisation of all the PTM-types. Its important
-# to undersand their functions and experimental relevence. 
+# to undersand properly the functions and experimental relevence of PTMs by 
+# creating the tools that facilitate the PTMs based analyses. 
 # And to understand the importance of PTMs in Yeast genome, its important 
-# to make it easier to map mutations to PTM positional data. Besides that
-# it also important to translate genetic abrretion to understand the phenotype. 
-# We architect the yMap library to help users to understand which parts of
+# to make it easier to map experimental mutations to PTM positional data. 
+# it's also important and relevent to translate genetic abrretions to understand 
+# the phenotype. 
+# We architect a python (yMap) library to help users to understand which parts of
 # mutated proteins are affected during the yeast experimentation.
 # This facilitation not only would help bioligists to interpret their data 
 # efficiently but also gives freedom to save time by mapping data to mutations 
@@ -18,12 +20,12 @@
 # large yeast variants to proteins post-translational modifications, proteins domains,
 # proteins-DNA binding domains, proteins structural regions, proteins active and 
 # binding sites, proteins networks visualisation. 
+# For Usage see README file
 #
 # Dependencies:
 # Orange Bioinformatics 
 # pip install orange; see README file 
 #
-# For Usage see README file
 
 import os
 import math
