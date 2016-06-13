@@ -185,7 +185,7 @@ NOTE: For every new mutations file, only run ymap_genes() or ymap_proteins(), si
 Reason: forget to unzip the data/PTMcode+PTMfunc_data/sc_btw_proteins.txt.zip
 how to correct: unzip the sc_btw_proteins.txt.zip file and run the data()
 
-2 - ymap_genes() fail to complete with error message: 
+2 - ymap_genes() gives an error message: 
 
 “IndexError: string index out of range”
 
@@ -193,6 +193,6 @@ Reason: the mutations positions fall outside the start and end of the respective
 the proteins in starting file with correct mutation positions, user can use individual methods uniprot_data()
 and functional_data(), to get all the analyses done)
 
-how to correct: Look at the mutations of mutations and compare them manually if the correspond to start and end
-of a protein, if not correct the problem and rerun the method mutation_types_file().
+how to correct: Look at the positions of mutations and compare them manually if they correspond to start and end 
+positions of a protein, if not, correct the problem and re-run the method mutation_types_file().
 
