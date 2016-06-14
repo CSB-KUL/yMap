@@ -92,75 +92,93 @@ def revcomp(dna, reverse=True, complement=True):
     return ''.join(result_as_list)
 
 
-def mutation_file(file1, file2):
-    """  The following bit of code combines, translation and reverse complement codes and out put the 
-         type of mutation, amino acid, both wild and mutant. 
-    """
-    with open('mutation.txt', 'w') as t:
-        with open(file1, 'rU') as mut:
-            for m in mut:
-                m = m.rstrip().split()
-                with open(file2,'r') as id:
-                    for i in id:
-                        i = i.split()
-                        if not m[0].startswith('c'.upper()):
-                            if len(m) != 5  or not m[0].startswith('c'.lower()):
-                                raise StopIteration('Please correct the format of input mutation file')
-                            else:
-                                if m[4] == i[2]:
-                                    take = m[4]+'\t'+m[0]+'\t'+i[3]+'\t'+m[1]+'\t'+i[4]+'\t'+m[2]+'\t'+m[3]+'\t'+i[5]
-                                    take1= take.split()
-                                    cod = int(take1[4])-int(take1[3])
-                                    c = int(cod)/3
-                                    with open('gff.txt', 'rU') as orf:  
-                                        linee = orf.readlines()[23078:]
-                                        up = (x[1] for x in groupby(linee, lambda line: line[0] == ">"))
-                                        for head in up:
-                                            head = head.next()[1:].strip()
-                                            seq = "".join(s.strip() for s in up.next())
-                                            if head == take1[1] and take1[0] == i[2] and take1[7] == '-':
-                                                cod = 1 + (int(take1[4])-int(take1[3]))                       
-                                                cc = math.ceil(int(cod)/float(3))
-                                                c = str(cc).split('.')                          
-                                                cn = int(c[0])-1                                           
-                                                sli_n = seq[int(take1[2]):int(take1[4])]                    
-                                                rev_sli_n = revcomp(sli_n, reverse=True, complement=True)   
-                                                sli_m_n = sli_n[:int(-cod)]+take1[6]+sli_n[int(-cod)+1:]  
-                                                rev_sli_m_n = revcomp(sli_m_n, reverse=True, complement=True)   
-                                                wild_type_rev_n = translate_dna(rev_sli_n)                 
-                                                mut_type_n = translate_dna(rev_sli_m_n)             
-                                                if wild_type_rev_n[cn] != mut_type_n[cn] and mut_type_n[cn] == '_': 
-                                                    pic = take1[0]+'\t'+str(c[0])+'\t'+wild_type_rev_n[cn]+'\t'+mut_type_n[cn]+'\t'+'Stop' +'\t'+take1[1]+'\t'+take1[3]
-                                                    if pic > 0:
-                                                        t = open('mutation.txt', 'a+')
-                                                        t.write(pic+'\n')
-                                                if wild_type_rev_n[cn] != mut_type_n[cn] and mut_type_n[cn] != '_':
-                                                    pic = take1[0]+'\t'+str(c[0])+'\t'+wild_type_rev_n[cn]+'\t'+mut_type_n[cn]+'\t'+'Non-Synonymous' +'\t'+take1[1]+'\t'+take1[3]                                                                                                                          
-                                                    if pic > 0:
-                                                        t = open('mutation.txt', 'a+')
-                                                        t.write(pic+'\n')
-                                                        continue
-                                            if head == take1[1] and take1[0]==i[2] and take1[7] == '+': 
-                                                code = int(take1[3])-int(take1[2])
-                                                code1 = 1 + (int(take1[3])-int(take1[2])) 
-                                                cce = math.ceil(int(code1)/float(3)) 
-                                                ce = str(cce).split('.') 
-                                                cp = int(ce[0])-1                                          
-                                                pos = int(take1[2]) - 1
-                                                sli_p = seq[int(pos):int(take1[4])]                     
-                                                sli_m_p = sli_p[:int(code)]+take1[6]+sli_p[int(code)+1:]  
-                                                wild_type_p = translate_dna(sli_p)                     
-                                                mut_type_p = translate_dna(sli_m_p)                    
-                                                if wild_type_p[cp] != mut_type_p[cp] and mut_type_p[cp] != '_': 
-                                                    pick = take1[0]+'\t'+str(ce[0])+'\t'+wild_type_p[cp]+'\t'+mut_type_p[cp]+'\t'+'Non-Synonymous'+'\t'+take1[1]+'\t'+take1[3]
-                                                    if pick > 0:
-                                                        with open('mutation.txt', 'a+') as t:
-                                                            t.write(pick+'\n')
-                                                if wild_type_p[cp] != mut_type_p[cp] and mut_type_p[cp]=='_':
-                                                    pick = take1[0]+'\t'+str(ce[0])+'\t'+wild_type_p[cp]+'\t'+mut_type_p[cp]+'\t'+'Stop' +'\t'+take1[1]+'\t'+take1[3]
-                                                    if pick > 0:
-                                                        with open('mutation.txt', 'a+') as t:
-                                                            t.write(pick+'\n')
+def mutation_file(mutation, d_id):
+
+        with open('mutation.txt', 'w') as t:    #output file
+            with open(mutation, 'rU') as mut: #input mutation file
+                for m in mut:
+                    m = m.rstrip().split()
+                    with open(d_id,'r') as id:    #file contains the, chr, start, end of a gene with + , - orientation
+                        for i in id:
+                            i = i.rstrip().split()
+                            if not m[0].startswith('c'.upper()):
+                                if len(m) != 5  or not m[0].startswith('c'.lower()):
+                                    raise StopIteration('Please correct the format of input mutation file')
+                                else:
+                                    if m[4] == i[2]:
+                                        take = m[4]+'\t'+m[0]+'\t'+i[3]+'\t'+m[1]+'\t'+i[4]+'\t'+m[2]+'\t'+m[3]+'\t'+i[5]
+                                        take1= take.rstrip().split()       
+                                        with open('gff.txt', 'rU') as orf:      # reads the gff file as fasta for DNA seq 
+                                            linee = orf.readlines()[23078:]
+                                            up = (x[1] for x in groupby(linee, lambda line: line[0] == ">")) # import mutationfile2 from mutationfile2 import * mutation_file('F6_SNP_pop.txt', 'd_id_map.txt')
+                                            for head in up:
+                                                head = head.next()[1:].strip()
+                                                seq = "".join(s.strip() for s in up.next())
+                                                if head == take1[1] and take1[0] == i[2] and take1[7] == '-':   
+                                                    cod = 1 + (int(take1[4])-int(take1[3]))                       
+                                                    cc = math.ceil(int(cod)/float(3))
+                                                    c = str(cc).split('.')                         
+                                                    cn = int(c[0])-1    
+                                                    sli_n = seq[int(take1[2]):int(take1[4])]                  
+                                                    rev_sli_n = revcomp(sli_n, reverse=True, complement=True)  
+                                                    sli_m_n = sli_n[:int(-cod)]+take1[6]+sli_n[int(-cod)+1:] 
+                                                    rev_sli_m_n = revcomp(sli_m_n, reverse=True, complement=True)   
+                                                    wild_type_rev_n = translate_dna(rev_sli_n)                
+                                                    mut_type_n = translate_dna(rev_sli_m_n)
+                                                    try:
+                                                        if wild_type_rev_n[cn] != mut_type_n[cn] and mut_type_n[cn] == '_':
+                                                            pic = take1[0]+'\t'+str(c[0])+'\t'+wild_type_rev_n[cn]+'\t'+mut_type_n[cn]+'\t'+'Stop' +'\t'+take1[1]+'\t'+take1[3]
+                                                            if pic > 0: 
+                                                                t = open('mutation.txt', 'a')
+                                                                t.write(pic+'\n')
+                                                    except IndexError, e:
+                                                            pic1 =  take1[0]+ '\t'+ 'Error:'+'\t'+ str(e)
+                                                            t = open('mutation.txt', 'a+')
+                                                            t.write(pic1+'\n')
+                                                            continue
+                                                    try:
+                                                        if wild_type_rev_n[cn] != mut_type_n[cn] and mut_type_n[cn] != '_':
+                                                            pic = take1[0]+'\t'+str(c[0])+'\t'+wild_type_rev_n[cn]+'\t'+mut_type_n[cn]+'\t'+'Non-Synonymous' +'\t'+take1[1]+'\t'+take1[3]                                                                                                                    
+                                                            if pic > 0:
+                                                                t = open('mutation.txt', 'a+')
+                                                                t.write(pic+'\n')
+                                                    except IndexError, e:
+                                                            pic1 =  take1[0]+ '\t'+ 'Error:'+'\t'+ str(e)
+                                                            t = open('mutation.txt', 'a+')
+                                                            t.write(pic1+'\n')
+                                                            continue
+                                                if head == take1[1] and take1[0]==i[2] and take1[7] == '+':
+                                                    code = int(take1[3])-int(take1[2])
+                                                    code1 = 1 + (int(take1[3])-int(take1[2])) 
+                                                    cce = math.ceil(int(code1)/float(3)) 
+                                                    ce = str(cce).split('.') 
+                                                    cp = int(ce[0])-1                  
+                                                    pos = int(take1[2]) - 1                               
+                                                    sli_p = seq[int(pos):int(take1[4])]                   
+                                                    sli_m_p = sli_p[:int(code)]+take1[6]+sli_p[int(code)+1:]  
+                                                    wild_type_p = translate_dna(sli_p)                    
+                                                    mut_type_p = translate_dna(sli_m_p)
+                                                    try:                   
+                                                        if wild_type_p[cp] != mut_type_p[cp] and mut_type_p[cp] != '_': 
+                                                            pick = take1[0]+'\t'+str(ce[0])+'\t'+wild_type_p[cp]+'\t'+mut_type_p[cp]+'\t'+'Non-Synonymous'+'\t'+take1[1]+'\t'+take1[3]
+                                                            if pick > 0:
+                                                                with open('mutation.txt', 'a+') as t:
+                                                                    t.write(pick+'\n')
+                                                    except IndexError, e:
+                                                            pic1 =  take1[0]+ '\t'+ 'Error:'+'\t'+ str(e)
+                                                            t = open('mutation.txt', 'a+')
+                                                            t.write(pic1+'\n')
+                                                            continue
+                                                    try:
+                                                        if wild_type_p[cp] != mut_type_p[cp] and mut_type_p[cp]=='_':
+                                                            pick = take1[0]+'\t'+str(ce[0])+'\t'+wild_type_p[cp]+'\t'+mut_type_p[cp]+'\t'+'Stop' +'\t'+take1[1]+'\t'+take1[3]
+                                                            if pick > 0:
+                                                                with open('mutation.txt', 'a+') as t:
+                                                                    t.write(pick+'\n')
+                                                    except IndexError, e:
+                                                            pic1 =  take1[0]+ '\t'+ 'Error:'+'\t'+ str(e)
+                                                            t = open('mutation.txt', 'a+')
+                                                            t.write(pic1+'\n')
 
 
 #\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
