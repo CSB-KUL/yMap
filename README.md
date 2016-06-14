@@ -67,5 +67,8 @@ The final-report is complemented with two other files; enrichment and visualsati
 
             To learn about the types of problems and how to solve them; see README file
 
+# Contributors
 
+            http://www.biw.kuleuven.be/CSB/
+            
 This work in supported by KU Leuven research fund. 
