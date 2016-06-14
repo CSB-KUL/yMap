@@ -93,7 +93,7 @@ def revcomp(dna, reverse=True, complement=True):
 
 
 def mutation_file(mutation, d_id):
-
+        """ defines the mutation types; either Non-Synonmous or Stop Codon"""
         with open('mutation.txt', 'w') as t:    #output file
             with open(mutation, 'rU') as mut: #input mutation file
                 for m in mut:
