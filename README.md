@@ -6,7 +6,7 @@ yMap is a python based fast and robust automated method to map large yeast varia
                             
             - proteins domains, 
                             
-            - proteins-DNA binding domains, 
+            - proteins-nucleotide binding domains, 
                         
             - proteins structural regions, 
                 
