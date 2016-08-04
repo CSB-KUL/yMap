@@ -96,7 +96,8 @@ A - mutation (tab separated txt (test)”mutated_proteins.txt”) file contains 
 
 9 - uniprot_bioGrid.txt	# contains all the yeast proteins is and BioGrid ids
 
-(ii)	Pre downloaded files from PTMcode and PTMfunc
+
+(i-B)	Pre downloaded files from PTMcode and PTMfunc
 
 (PTMfunc)
 
@@ -119,6 +120,8 @@ schotspot.txt
 sc_btw_proteins.txt
 
 sc_within_proteins.txt
+
+
 
 (ii)	Processed data from UniProt and other resources. 
 
@@ -163,66 +166,64 @@ nucleotide.txt
 id_nucleotide.txt		
 		contains data from nucleotide with all the protein ids for processing
 
-
-/PTMs/mutated_proteins.txt	
-		contains proteins ids mutated at PTMs sites
-
-/Domains/domains_mapped.txt	
-		contains proteins ids mutated for protein domains
-
-/A-B_binding/ab_mutation_file.txt	
-		contains proteins ids mutated at active and binding 
-
-biog.txt			
-		contains proteins BioGrid ids for web() function
-
-p-value.txt			
-		contains pathways for each type of mutation observed
-		in files 10, 11, 12. 
-
-summary.txt			
-		contains all the proteins that are mapped on different data sets.
-
-final_report.txt		
-		contains, protein UniProt id, common names, amino acid mutation position, wild type amino acid, mutated 
-		amino acid, type of mutation (synonymous/ non-synonymous/stop codon), mutation feature types (i.e. PTM-type or domain-name etc), mutation feature (i.e. PTMs, domain or another) and source of data (e.g. UnProt)
-
-
-(iii)	results folders - for each type of data 
+#Results
 
 (each folder contains three files, one with mutations analysis, pvalue and a biogrid id corresponding to mutated proteins)
 
-PTMs
+	/PTMs/mutated_proteins.txt	
+		contains proteins ids mutated at PTMs sites
 
-domains
+	/Domains/domains_mapped.txt	
+		contains proteins ids mutated for protein domains
 
-A-B-sites
+	/A-B_binding/ab_mutation_file.txt	
+		contains proteins ids mutated at active and binding 
 
-Nucleotide_binding
 
-PDB
+	PPI - PTMfunc data
 
-PPI
+		PPI/acetylation
+		PTM-type containing residue is important in PPI
 
-PPI/acetylation
+		PPI/Phosphorylation
+		PTM-type containing residue is important in PPI
 
-PPI/Phosphorylation
+		PPI/ubiquitination
+		PTM-type containing residue is important in PPI
 
-PPI/ubiquitination
+	Interface
 
-Interface
+		Interface/ubiquitination
+		PTM-type containing residue present at protein interface 
 
-Interface/ubiquitination
+		Interface/acetylation
+		PTM-type containing residue present at protein interface 
 
-Interface/acetylation
+		Interface/Phosphorylation
+		PTM-type containing residue present at protein interface 
 
-Interface/Phosphorylation
+	PTMs_hotSpot
+		PTMs concentrated in a small motif known as hopspot by Beltrao et al. Cell 2012.
 
-PTMs_hotSpot
+	PTMs_between_proteins - PTMcode2.0 data
+		PTMs present between two proteins and involvined in crosstalk. 
 
-PTMs_between_proteins
+	PTMs_witnin_proteins
+		PTMs present within a protein and involvined in crosstalk.
+	
+	biog.txt			
+		contains proteins BioGrid ids for web() function
 
-PTMs_witnin_proteins
+	p-value.txt			
+		contains pathways enrichments for each type of mutation observed. 
+
+	summary.txt			
+		contains all the proteins that are mapped on different data sets.
+
+	final_report.txt		
+		contains, protein UniProt id, common names, amino acid mutation position, wild type amino acid, mutated 
+		amino acid, type of mutation (synonymous/ non-synonymous/stop codon), mutation feature types (i.e. PTM-type or domain-name etc), mutation feature (i.e. PTMs, domain or another) and source of data (e.g. UnProt)
+
 
 
 #Introduction to all the methods 
