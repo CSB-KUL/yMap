@@ -124,48 +124,68 @@ sc_within_proteins.txt
 
 A number of files germinated from the original UniProt file for further analyses:
 
-PTMs.txt			# contains Post-translational modifications
+PTMs.txt			
+		contains Post-translational modifications
 
-PTM_id_file.txt			# PTMs.txt with all the proteins ids
+PTM_id_file.txt			
+		PTMs.txt with all the proteins ids
 
-PDB.txt				# contains PDB structural data from UniProt
+PDB.txt				
+		contains PDB structural data from UniProt
 
-nucleotide.txt			# contains DNA-Protein binding motifs 
+nucleotide.txt			
+		contains DNA-Protein binding motifs 
 
-back.txt			# contains 
+back.txt			
+		contains 
 
-d_id_map.txt			# contains protein domains with all the ids	
+d_id_map.txt			
+		contains protein domains with all the ids	
 
-id_domain.txt			# gff data from frmt.txt with all the ids
+id_domain.txt			
+		gff data from frmt.txt with all the ids
 
-domains.txt			# domains data from UniProt
+domains.txt			
+		domains data from UniProt
 
-frmt.txt			# gff file formatted for further process
+frmt.txt			
+		gff file formatted for further process
 
-sites_id.xt			# Active/binding sites with all ids
+sites_id.xt			
+		Active/binding sites with all ids
 
-unipro_bioGrid.txt		# contains BioGrid ids of all yeast proteins
+unipro_bioGrid.txt		
+		contains BioGrid ids of all yeast proteins
 
-nucleotide.txt			# proteins (uniprot) id with DNA binding motifs
+nucleotide.txt			
+		proteins (uniprot) id with DNA binding motifs
 
-id_nucleotide.txt		# contains data from nucleotide with all the protein ids for processing
+id_nucleotide.txt		
+		contains data from nucleotide with all the protein ids for processing
 
 
-/PTMs/mutated_proteins.txt	# contains proteins ids mutated at PTMs sites
+/PTMs/mutated_proteins.txt	
+		contains proteins ids mutated at PTMs sites
 
-/Domains/domains_mapped.txt	# contains proteins ids mutated for protein domains
+/Domains/domains_mapped.txt	
+		contains proteins ids mutated for protein domains
 
-/A-B_binding/ab_mutation_file.txt	# contains proteins ids mutated at active and binding 
+/A-B_binding/ab_mutation_file.txt	
+		contains proteins ids mutated at active and binding 
 
-biog.txt			# contains proteins BioGrid ids for web() function
+biog.txt			
+		contains proteins BioGrid ids for web() function
 
-p-value.txt			# contains pathways for each type of mutation observed
-				 in files 10, 11, 12. 
+p-value.txt			
+		contains pathways for each type of mutation observed
+		in files 10, 11, 12. 
 
-summary.txt			# contains all the proteins that are mapped on different data sets.
+summary.txt			
+		contains all the proteins that are mapped on different data sets.
 
-final_report.txt		# contains, protein UniProt id, common names, amino acid mutation position, wild type amino acid, mutated 
-				amino acid, type of mutation (synonymous/ non-synonymous/stop codon), mutation feature types (i.e. PTM-type or domain-name etc), mutation feature (i.e. PTMs, domain or another) and source of data (e.g. UnProt)
+final_report.txt		
+		contains, protein UniProt id, common names, amino acid mutation position, wild type amino acid, mutated 
+		amino acid, type of mutation (synonymous/ non-synonymous/stop codon), mutation feature types (i.e. PTM-type or domain-name etc), mutation feature (i.e. PTMs, domain or another) and source of data (e.g. UnProt)
 
 
 (iii)	results folders - for each type of data 
@@ -173,67 +193,100 @@ final_report.txt		# contains, protein UniProt id, common names, amino acid mutat
 (each folder contains three files, one with mutations analysis, pvalue and a biogrid id corresponding to mutated proteins)
 
 PTMs
+
 domains
+
 A-B-sites
+
 Nucleotide_binding
+
 PDB
 
 PPI
+
 PPI/acetylation
+
 PPI/Phosphorylation
+
 PPI/ubiquitination
+
 Interface
+
 Interface/ubiquitination
+
 Interface/acetylation
+
 Interface/Phosphorylation
+
 PTMs_hotSpot
+
 PTMs_between_proteins
+
 PTMs_witnin_proteins
 
 
-#Introduction to all the methods (How to work with in ymap.py)
+#Introduction to all the methods 
+		(How individual methods work in ymap)
 
 NOTE: change the name of the mutations containing file to ‘mutated_proteins.txt’ (see example data) and copy to the cd path/to/ymap
 
 
-Functions name		Description
+Functions name			Description
 
-mutation_types_file()		to get the mutations quality (Synonymous, Non-Synonymous or Stop codon) in the file containing genome coordinates of mutation with knowledge of ref. and mutated base; furthermore the ‘mutation.txt’ from this code will be used to further other methods n map to get the summary file.
+mutation_types_file()		
+		to get the mutations quality (Synonymous, Non-Synonymous or Stop codon) in the file containing genome coordinates of mutation with knowledge of ref. and mutated base; furthermore the ‘mutation.txt’ from this code will be used to further other methods n map to get the summary file.
 
-pTMdata()		Downloads UpiProt data as a raw txt file (uniprot_mod_raw.txt)
+pTMdata()		
+		Downloads UpiProt data as a raw txt file (uniprot_mod_raw.txt)
 
-clean()			cleans file 'uniprot_mod_raw.txt' into 'PTMs.txt'
+clean()			
+		cleans file 'uniprot_mod_raw.txt' into 'PTMs.txt'
 
-iD()			Downloads different yeast IDs from UniProt (yeastID.txt)
+iD()			
+		Downloads different yeast IDs from UniProt (yeastID.txt)
 
-pmap()			combine yeast PTM and IDs into one file(PTM_id_file.txt)
+pmap()			
+		combine yeast PTM and IDs into one file(PTM_id_file.txt)
 
-ptm_map()		Gives a file containing mutated proteins at PTMs with their positions 
+ptm_map()		
+		Gives a file containing mutated proteins at PTMs with their positions 
 
-dclean()		prepares raw Uniprot data (uniprot_mod_raw.txt) for yeast domains mutations analysis (domains.txt)
+dclean()		
+		prepares raw Uniprot data (uniprot_mod_raw.txt) for yeast domains mutations analysis (domains.txt)
 
-d_map()			combine domains.txt and yeastID.txt into one file (id_domain.txt)
+d_map()			
+		combine domains.txt and yeastID.txt into one file (id_domain.txt)
 
-dmap()			map mutations to proteins domains (domains_mapped.txt)
+dmap()			
+		map mutations to proteins domains (domains_mapped.txt)
 
-enrich()		Gives p-value of pathways underlying the mutated proteins at for all type of data analysed the methods (either
-			PTMs, domains and/or active - binding sites, structural and DNA-protein binding motifs or PTMcode/PTMfunc data)
+enrich()		
+		Gives p-value of pathways underlying the mutated proteins at for all type of data analysed the methods (either
+		PTMs, domains and/or active - binding sites, structural and DNA-protein binding motifs or PTMcode/PTMfunc data)
 
-ab()			prepares raw Uniprot data (uniprot_mod_raw.txt) for yeast active and binding sites mutation analysis (bact.txt)
+ab()			
+		prepares raw Uniprot data (uniprot_mod_raw.txt) for yeast active and binding sites mutation analysis (bact.txt)
 
-id()			combine bact.txt and yeastID.txt into one file (sites_id.txt)
+id()			
+		combine bact.txt and yeastID.txt into one file (sites_id.txt)
 
-mmap()			map mutations to proteins active and bindings sites (ab_mutation_file.txt)
+mmap()			
+		map mutations to proteins active and bindings sites (ab_mutation_file.txt)
 
-nucleotide()		prepares the UniProt data for the nucleotide motifs mapping to mutations
+nucleotide()		
+		prepares the UniProt data for the nucleotide motifs mapping to mutations
 
-n_map()			maps the file from previous method to yeastID file
+n_map()		
+		maps the file from previous method to yeastID file
 
-nucleotide_map()	maps mutations to the nucleotide binding motifs
+nucleotide_map()	
+		maps mutations to the nucleotide binding motifs
 
-bioGrid()		Downloads BioGrid ids of yeast proteins from UniProt (uniprot_bioGrid.txt)
+bioGrid()		
+		Downloads BioGrid ids of yeast proteins from UniProt (uniprot_bioGrid.txt)
 
-preWeb()		combines mutated proteins with uniprot_bioGrid.txt in a file (biog.txt)
+preWeb()
+		combines mutated proteins with uniprot_bioGrid.txt in a file (biog.txt)
 
 Web()			Automated opening the web links of BioGrid db for further network and pathways analyses of mutated proteins. WARNING. It requires powerful machines to open new tabs for each multiple proteins
 
