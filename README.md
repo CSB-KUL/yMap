@@ -67,9 +67,16 @@ A - mutation (tab separated txt (test)”mutated_proteins.txt”) file contains 
 
 ———output———
 
+
 (i)	Raw files (downloaded from UniProt and stored in the present dir.) 	
+
+
 1 - uniprot_mod_raw.txt	# Uniprot data in raw format 
+
+
 2 - yeastID.txt			# Yeast id containing file
+
+
 3 - PTMs.txt			# contains yeast proteins, PTMs position and PTM types
 4 - PTM_id_file.txt		# combined file of 2 and 3.
 5 - domains.txt			# yeast proteins, domains start, end and names
