@@ -40,22 +40,29 @@ The final-report is complemented with two other files; enrichment and visualsati
    
     yMap depends on:
             
-            python 2.7.10
+            python 2.7.x
+            
+            python 3.5.x
             
             Orange bioinformatics (http://pythonhosted.org/Orange-Bioinformatics/#installation)
             
-    
+#Installation
+
+            pip install ymap
 
 
 #Usage
     
-            os.chdir(../yMap)
-            import ymap
-            from ymap import *
-            data() 
-            ymap_genes()            #if starting file contains the mutations at chromosomes leve with genetic coordinates.
-            or
-            ymap_proteins()         #if starting file contains the mutations at proteins level.
+            cd /path/to/ymap
+            
+            $ python ymap.py --data data        #download all the data need for proper execution of ymap
+            
+            $ python ymap.py --ymap_proteins ymap_proteins  #if starting file contains the mutations at proteins level 
+                                                            (SEE example data).
+            
+            $ python ymap.py --ymap_genes ymap_genes        #if starting file contains the mutations at chromosomes leve with genetic                                                    coordinates (SEE example data).
+            
+            $ python ymap.py --web web                      # generates the html based visualization of mutated proteins on BioGrid db.
         
         
 #Documentation     
