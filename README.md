@@ -97,7 +97,9 @@ A - mutation (tab separated txt (test)”mutated_proteins.txt”) file contains 
 
 9 - uniprot_bioGrid.txt	# contains all the yeast proteins is and BioGrid ids
 
-#Pre downloaded files from PTMcode and PTMfunc(PTMfunc)
+(ii)	Pre downloaded files from PTMcode and PTMfunc
+
+(PTMfunc)
 
 3DID_aceksites_interfaceRes_sc.txt
 
@@ -111,37 +113,61 @@ SC_ubi_interactions_sc.txt
 
 SC_acet_interactions.txt
 
-schotspot.txt(PTMcode)
+(PTMcode)
+
+schotspot.txt
 
 sc_btw_proteins.txt
 
 sc_within_proteins.txt
 
 (ii)	Processed data from UniProt and other resources. 
+
 A number of files germinated from the original UniProt file for further analyses:
 
 PTMs.txt			# contains Post-translational modifications
+
 PTM_id_file.txt			# PTMs.txt with all the proteins ids
+
 PDB.txt				# contains PDB structural data from UniProt
+
 nucleotide.txt			# contains DNA-Protein binding motifs 
+
 back.txt			# contains 
+
 d_id_map.txt			# contains protein domains with all the ids	
+
 id_domain.txt			# gff data from frmt.txt with all the ids
+
 domains.txt			# domains data from UniProt
+
 frmt.txt			# gff file formatted for further process
+
 sites_id.xt			# Active/binding sites with all ids
+
 unipro_bioGrid.txt		# contains BioGrid ids of all yeast proteins
+
 nucleotide.txt			# proteins (uniprot) id with DNA binding motifs
+
 id_nucleotide.txt		# contains data from nucleotide with all the protein ids for processing
 
+
 /PTMs/mutated_proteins.txt	# contains proteins ids mutated at PTMs sites
+
 /Domains/domains_mapped.txt	# contains proteins ids mutated for protein domains
+
 /A-B_binding/ab_mutation_file.txt	# contains proteins ids mutated at active and binding 
+
 biog.txt			# contains proteins BioGrid ids for web() function
+
 p-value.txt			# contains pathways for each type of mutation observed
 				 in files 10, 11, 12. 
+
 summary.txt			# contains all the proteins that are mapped on different data sets.
-final_report.txt		# contains, protein UniProt id, common names, amino acid mutation position, wild type amino acid, mutated amino acid, type of mutation (synonymous/ non-synonymous/stop codon), mutation feature types (i.e. PTM-type or domain-name etc), mutation feature (i.e. PTMs, domain or another) and source of data (e.g. UnProt)
+
+final_report.txt		# contains, protein UniProt id, common names, amino acid mutation position, wild type amino acid, mutated 
+				amino acid, type of mutation (synonymous/ non-synonymous/stop codon), mutation feature types (i.e. PTM-type or domain-name etc), mutation feature (i.e. PTMs, domain or another) and source of data (e.g. UnProt)
+
 
 (iii)	results folders - for each type of data 
 
