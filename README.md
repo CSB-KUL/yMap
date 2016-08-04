@@ -60,12 +60,12 @@ Troubleshoots
 
 #Introduction to data:
 
-—————input———
+	—————input———
 
 A - mutation (tab separated txt (test)”mutated_proteins.txt”) file contains proteins common names and mutated residues positions(see example data))
 
 
-———output———
+	———output———
 
 
 (i)	Raw files (downloaded from UniProt and stored in the present dir.) 	
@@ -78,25 +78,43 @@ A - mutation (tab separated txt (test)”mutated_proteins.txt”) file contains 
 
 
 3 - PTMs.txt			# contains yeast proteins, PTMs position and PTM types
+
+
 4 - PTM_id_file.txt		# combined file of 2 and 3.
+
+
 5 - domains.txt			# yeast proteins, domains start, end and names
+
+
 6 - id_domain.txt		# combined file of 2 and 5.
+
+
 7 - bact.txt			# contains proteins id, and binding and active sites 
 				  positions
+
 8 - sites_id.txt		# combined file of 2 and 7.
+
+
 9 - uniprot_bioGrid.txt	# contains all the yeast proteins is and BioGrid ids
 
-Pre downloaded files from PTMcode and PTMfunc
-(PTMfunc)
+#Pre downloaded files from PTMcode and PTMfunc(PTMfunc)
+
 3DID_aceksites_interfaceRes_sc.txt
+
 3DID_phosphosites_interfaceRes_sc.txt
+
 3DID_ubisites_interfaceRessc_sc.txt
+
 SC_psites_interactions_sc.txt
+
 SC_ubi_interactions_sc.txt
+
 SC_acet_interactions.txt
-schotspot.txt
-(PTMcode)
+
+schotspot.txt(PTMcode)
+
 sc_btw_proteins.txt
+
 sc_within_proteins.txt
 
 (ii)	Processed data from UniProt and other resources. 
