@@ -1,6 +1,5 @@
-//////////////		Yeast Genotype to Phenotype Map (yMap) (release year 2016)	\\\\\\\\\\\\\\\\\\
 
-# yMap
+# yMap - Yeast Genotype to Phenotype Map (release year 2016)
 
 yMap is a python based fast and robust automated method to map large yeast variants data to 
             
