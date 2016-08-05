@@ -48,7 +48,7 @@ yMap depends on:
             
             $ python ymap.py --ymap_genes ymap_genes        #if starting file contains the mutations at chromosomes leve with genetic                                                    coordinates (SEE example data).
             
-            $ python ymap.py --web web                      # generates the html based visualization of mutated proteins on BioGrid db.
+            $ python ymap.py --web web --web_path /path/to/biog.txt    # generates the html based visualization of mutated proteins on BioGrid db.
 
 
 #Contents:
