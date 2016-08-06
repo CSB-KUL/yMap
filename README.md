@@ -289,7 +289,7 @@ bioGrid()
 preWeb()
 		combines mutated proteins with uniprot_bioGrid.txt in a file (biog.txt)
 
-Web()			Automated opening the web links of BioGrid db for further network and pathways analyses of mutated proteins. WARNING. It requires powerful machines to open new tabs for each mutated proteins
+web()			Automated opening the web links of BioGrid db for further network and pathways analyses of mutated proteins. WARNING. It requires powerful machines to open new tabs for each mutated protein.
 
 ymap()			runs all the methods included in ymap (excluding data() and mutation_types_file())  and returns different data folders for each type of data processed for our mutational data.
 
