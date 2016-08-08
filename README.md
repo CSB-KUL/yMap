@@ -140,7 +140,7 @@ nucleotide.txt
 		contains DNA-Protein binding motifs 
 
 back.txt			
-		contains 
+		contains Proteins active and binding positions
 
 d_id_map.txt			
 		contains protein domains with all the ids	
@@ -152,7 +152,7 @@ domains.txt
 		domains data from UniProt
 
 frmt.txt			
-		gff file formatted for further process
+		formatted gff file for further process
 
 sites_id.xt			
 		Active/binding sites with all ids
@@ -168,7 +168,7 @@ id_nucleotide.txt
 
 #Results
 
-(each folder contains three files, one with mutations analysis, pvalue and a biogrid id corresponding to mutated proteins)
+(each folder contains three files, one with mutations analysis file, which includes mutated proteins, mutation positions, mutated functional region and source of data, pvalue.txt of pathways enrichments and biog.txt, a biogrid id corresponding to mutated proteins)
 
 	/PTMs/mutated_proteins.txt	
 		contains proteins ids mutated at PTMs sites
