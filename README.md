@@ -304,16 +304,20 @@ ymap()			runs all the methods included in ymap (excluding data() and mutation_ty
 Reason: forget to unzip the data/PTMcode+PTMfunc_data/sc_btw_proteins.txt.zip
 how to correct: unzip the sc_btw_proteins.txt.zip file and run the data()
 
-2 - $ python ymap.py --ymap_genes genes gives an error message: 
+2 - $ python ymap.py -y genes gives an error message: 
 
 “IndexError: string index out of range”
 
+2(b) - The same reason (below) leads to the unfinished mapping to different functional regions like domains:
+
+"Error: input file contains error position forBRR2protein"
+
 Reason: the mutations positions fall outside the start and end of the respective proteins (NOTE: to analyse
 the proteins in starting file with correct mutation positions, user can use individual methods uniprot_data()
-and functional_data(), to get all the analyses done)
+and functional_data(), to get all the analyses done, other than command-line)
 
 how to correct: Look at the positions of mutations and compare them manually if they correspond to start and end 
-positions of a protein, if not, correct the problem and re-run the method mutation_types_file().
+positions of a protein, if not, correct the problem and re-run $ python ymap.py -y genes command.
 
 
 # Contributors
