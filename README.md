@@ -41,15 +41,15 @@ yMap depends on:
     
             cd /path/to/ymap
             
-            $ python ymap.py --data data        #download all the data need for proper execution of ymap
+            $ python ymap.py -d data        #download all the data need for proper execution of ymap
             
-            $ python ymap.py --ymap_proteins ymap_proteins  #if starting file contains the mutations at proteins level 
+            $ python ymap.py -y_ps ymap_proteins  #if starting file contains the mutations at proteins level 
                                                             (SEE example data).
             
-            $ python ymap.py --ymap_genes ymap_genes        #if starting file contains the mutations at chromosomes leve with genetic                                                    coordinates (SEE example data).
+            $ python ymap.py -y_gs ymap_genes        #if starting file contains the mutations at chromosomes leve with genetic                                                    coordinates (SEE example data).
             
-            $ python ymap.py --web web --web_path path   # generates the html based visualization of mutated proteins on BioGrid db.
-		(NOTE: a user will required to specify the path/to/biog.txt as input, when asked)
+            $ python ymap.py -web web    # generates the html based visualization of mutated proteins on BioGrid db.
+		(NOTE: a user will required to specify the 'path/to/biog.txt' as input, when asked)
 
 #Contents:
 Introduction to different types of data (generated in yMap)
