@@ -61,7 +61,8 @@ Troubleshoots
 
 	—————input———
 
-A - mutation (tab separated txt (test)”mutated_proteins.txt”) file contains proteins common names and mutated residues positions(see example data))
+A - mutation (tab separated txt "mutated_proteins.txt") file contains proteins common names and mutated residues positions
+(please following the exact naming convention of input files as in example data, for proper execusion of ymap; see example data))
 
 
 	———output———
