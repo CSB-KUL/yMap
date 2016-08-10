@@ -25,7 +25,3 @@ setup(
 	include_package_data = True,
 )
 
-
-
-#$ python setup.py sdist
-# $ cd dist
