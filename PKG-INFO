@@ -1,0 +1,19 @@
+Metadata-Version: 1.1
+Name: ymap
+Version: 1.0.0
+Summary: An automated method to map yeast variants to protein modifications and functional regions
+Home-page: https://github.com/CSB-KUL/yMap
+Author: Ahmed Arslan
+Author-email: ahmed.arslan@kuleuven.be
+License: MIT
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: User ((Computational)Biologists)
+Classifier: Topic :: Package Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
