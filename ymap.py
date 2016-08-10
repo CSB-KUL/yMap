@@ -259,9 +259,8 @@ class YGtPM(object):
     
     def clean(self, UniProt_file):              
         
-        """ cleans file 'uniprot_mod_raw.txt' into a tab separated’PTMs.txt'
-        """
-
+        """ cleans file uniprot_mod_raw.txt into a tab separatedPTMs.txt"""
+        
         with open('PTMs.txt', 'w') as out:
             with open(UniProt_file,'rU') as UniProt_file_name:
                 for l in UniProt_file_name:
