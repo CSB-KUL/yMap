@@ -17,9 +17,9 @@ yMap is a python based fast and robust automated method to map large yeast varia
 
 
 The post-translational modifications in yMap are collected from different repositories like UniProt and sources 
-with annotated PTMs like PTMcode 2.0 and PTMfunc, for more details, see README file.
+with annotated PTMs like PTMcode 2.0 and PTMfunc, for more details, see below.
 
-In a user friendly way, it generates a "final-report" file to report all the non-synonymous 
+In a user friendly three steps, it generates a "final-report" file to report all the non-synonymous 
 mutations that overlaps or falls inside the above mentioned proteins functional regions.
 The final-report is complemented with two other files; enrichment and visualsation id file
 
@@ -41,20 +41,20 @@ yMap depends on:
     
             step1: cd /path/to/ymap
             
-            step2: $ python ymap.py -d data        #download all the data need for proper execution of ymap
+            step2: $ python ymap.py -d data        	#download all the data needed for proper execution of ymap
             
             step3: $ python ymap.py -p ymap_proteins  #if starting file contains the mutations at proteins level 
-                                                            (SEE example data).
+                                                            (SEE example_mutation_file/mutation.txt).
             
-            step3: $ python ymap.py -g ymap_genes        #if starting file contains the mutations at chromosomes leve with genetic                                                    coordinates (SEE example data).
+            step3: $ python ymap.py -g ymap_genes        #if starting file contains the mutations at chromosomes leve with genetic                                                    coordinates (SEE example_mutation_file/mutated_proteins.txt).
             
             step4: $ python ymap.py -w web    # generates the html based visualization of mutated proteins on BioGrid db.
 			(NOTE: a user will required to specify the 'path/to/biog.txt' as input, when asked)
 
 #Contents:
-Introduction to different types of data (generated in yMap)
+Introduction to different types of data (generated/provided in yMap)
 Introduction to all the methods
-Manual (steps of using yMap)
+Results (introduction to results data)
 Troubleshoots
 
 #Introduction to data:
@@ -62,7 +62,7 @@ Troubleshoots
 	—————input———
 
 A - mutation (tab separated txt "mutated_proteins.txt") file contains proteins common names and mutated residues positions
-(please following the exact naming convention of input files as in example data, for proper execusion of ymap; see example data))
+(please following the exact naming convention of input files as in example data, for proper execution of ymap; see example data))
 
 
 	———output———(Pre-analysis data needed for ymap execution)
@@ -95,7 +95,7 @@ A - mutation (tab separated txt "mutated_proteins.txt") file contains proteins c
 8 - sites_id.txt		# combined file of 2 and 7.
 
 
-9 - uniprot_bioGrid.txt	# contains all the yeast proteins is and BioGrid ids
+9 - uniprot_bioGrid.txt		# contains all the yeast proteins with BioGrid ids
 
 
 (i-B)	Pre downloaded files from PTMcode and PTMfunc
@@ -213,17 +213,16 @@ id_nucleotide.txt
 		PTMs present within a protein and involvined in crosstalk.
 	
 	biog.txt			
-		contains proteins BioGrid ids for web() function
+		contains proteins BioGrid ids for -w web function (this file present in each subfolder).
 
 	p-value.txt			
-		contains pathways enrichments for each type of mutation observed. 
+		contains pathways enrichments for each type of mutation observed (this file present in each subfolder).
 
 	summary.txt			
 		contains all the proteins that are mapped on different data sets.
 
 	final_report.txt		
-		contains, protein UniProt id, common names, amino acid mutation position, wild type amino acid, mutated 
-		amino acid, type of mutation (non-synonymous/stop codon), mutation feature types (i.e. PTM-type or domain-name etc), mutation feature (i.e. PTMs, domain or another) and source of data (e.g. UnProt)
+		its a refined version of summary.txt and contains, protein UniProt id, common names, amino acid mutation position, wild type amino acid, mutated amino acid, type of mutation (non-synonymous/stop codon), mutation feature types (i.e. PTM-type or domain-name etc), mutation feature (i.e. PTMs, domain or another) and source of data (e.g. UnProt)
 
 
 
@@ -235,42 +234,39 @@ NOTE: change the name of the mutations containing file to ‘mutated_proteins.tx
 
 Functions name			Description
 
-mutation_types_file()		
-		to get the mutations quality (Synonymous, Non-Synonymous or Stop codon) in the file containing genome coordinates of mutation with knowledge of ref. and mutated base; furthermore the ‘mutation.txt’ from this code will be used to further other methods n map to get the summary file.
+mutation_types_file()	mutation type and amino acid change calculation (where ref. and mutant base known)
 
 pTMdata()		
 		Downloads UpiProt data as a raw txt file (uniprot_mod_raw.txt)
 
 clean()			
-		cleans file 'uniprot_mod_raw.txt' into 'PTMs.txt'
+		cleans file 'uniprot_mod_raw.txt' into a tab separated’PTMs.txt'
 
 iD()			
-		Downloads different yeast IDs from UniProt (yeastID.txt)
+		This method retrieves the different ID types for maping (yeastID.txt)
 
 pmap()			
-		combine yeast PTM and IDs into one file(PTM_id_file.txt)
+		if proteins ids are not SDG or uniprot or common names, this method maps the ids 
 
 ptm_map()		
-		Gives a file containing mutated proteins at PTMs with their positions 
+		This method maps the overlap between mutated codons from previous method to the PTM sites 
 
 dclean()		
-		prepares raw Uniprot data (uniprot_mod_raw.txt) for yeast domains mutations analysis (domains.txt)
-
+		domain data needed to be filters from UniProt file, before mapping domains 
 d_map()			
-		combine domains.txt and yeastID.txt into one file (id_domain.txt)
+		maps mutations to the yeast domains (id_domain.txt)
 
 dmap()			
 		map mutations to proteins domains (domains_mapped.txt)
 
 enrich()		
-		Gives p-value of pathways underlying the mutated proteins at for all type of data analysed the methods (either
-		PTMs, domains and/or active - binding sites, structural and DNA-protein binding motifs or PTMcode/PTMfunc data)
-
+		This method performed enrichment analysis of mutated proteins and return the p value of functional enrichment 
+		of mutated proteins at different functional regions/residues; see main text for how pvalue is calculated. 
 ab()			
 		prepares raw Uniprot data (uniprot_mod_raw.txt) for yeast active and binding sites mutation analysis (bact.txt)
 
 id()			
-		combine bact.txt and yeastID.txt into one file (sites_id.txt)
+		maps proteins ids to active and binding sites containing proteins (sites_id.txt)
 
 mmap()			
 		map mutations to proteins active and bindings sites (ab_mutation_file.txt)
@@ -279,22 +275,35 @@ nucleotide()
 		prepares the UniProt data for the nucleotide motifs mapping to mutations
 
 n_map()		
-		maps the file from previous method to yeastID file
+		maps different proteins ids to nucleotides data
 
 nucleotide_map()	
 		maps mutations to the nucleotide binding motifs
 
 bioGrid()		
-		Downloads BioGrid ids of yeast proteins from UniProt (uniprot_bioGrid.txt)
+		Downloads BioGrid ids of yeast proteins from UniProt for further processing including mapping and web browsing
+        WARNING: requires powerful machines to work with as its expensive to open in machines with low memory.
 
 preWeb()
-		combines mutated proteins with uniprot_bioGrid.txt in a file (biog.txt)
+		maps mutations to BioGrid ids (biog.txt)
 
-web()			Automated opening the web links of BioGrid db for further network and pathways analyses of mutated proteins. WARNING. It requires powerful machines to open new tabs for each mutated protein.
+bweb()		opens the BioGrid db in browser with as many tabs as mutated proteins
 
-ymap()			runs all the methods included in ymap (excluding data() and mutation_types_file())  and returns different data folders for each type of data processed for our mutational data.
+pdb_c()		Structure data filtration from UniProt
 
+mu_map()	mutations proteins mapped to the yeastID file
 
+pdb()		This code maps mutations to the proteins structural regions
+
+interface()	PTM present at the interface of two proteins and known to play role in interaction (Beltrao et al. Cell 2012)
+
+ppi()		PTM present at the interface of two proteins and known to play role in interaction (Beltrao et al. Cell 2012)
+
+withinPro()	PTMs (predicted) involved in the crosstalk within a given protein at baker's years (Minguez el 2012)
+
+betweenPro()	PTMs (predicted) involved in the crosstalk in different proteins at baker's years (PTMcode 2.0; Minguez el 2012)
+
+hotspot()	PTMs containing motifs in a close proximity are named hotspots (Beltrao et al. Cell 2012)
 
 #Troubleshoots
 
