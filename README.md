@@ -29,7 +29,7 @@ yMap depends on:
 
         python 2.7.x
 
-        python 3.5.x
+        python 3.x
 
         Orange bioinformatics (http://pythonhosted.org/Orange-Bioinformatics/#installation)
 
