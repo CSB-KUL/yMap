@@ -8,9 +8,8 @@ Author-email: ahmed.arslan@kuleuven.be
 License: MIT
 Description: UNKNOWN
 Platform: UNKNOWN
-Classifier: Development Status :: 5 - Production/Stable
-Classifier: Intended Audience :: User ((Computational)Biologists)
-Classifier: Topic :: Package Development :: Build Tools
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Education
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Programming Language :: Python :: 2.7
 Classifier: Programming Language :: Python :: 3
