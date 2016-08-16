@@ -39,17 +39,17 @@ yMap depends on:
 
 #Usage
     
-            step1: cd /path/to/ymap
+            step1: $ ydata       	#download all the data needed for proper execution of ymap
             
-            step2: $ python ymap.py -d data        	#download all the data needed for proper execution of ymap
+            step2: copy and paste the "mutation file" to the present directory
+
+            step3: $ yproteins  	#if starting file contains the mutations at proteins level 
+                                        (SEE example_mutation_file/mutation.txt).
             
-            step3: $ python ymap.py -p ymap_proteins  #if starting file contains the mutations at proteins level 
-                                                            (SEE example_mutation_file/mutation.txt).
+            step3: $ ygenes        	#if starting file contains the mutations at chromosomes leve with genetic                                                    coordinates (SEE example_mutation_file/mutated_proteins.txt).
             
-            step3: $ python ymap.py -g ymap_genes        #if starting file contains the mutations at chromosomes leve with genetic                                                    coordinates (SEE example_mutation_file/mutated_proteins.txt).
-            
-            step4: $ python ymap.py -w web    # generates the html based visualization of mutated proteins on BioGrid db.
-			(NOTE: a user will required to specify the 'path/to/biog.txt' as input, when asked)
+            step4: $ yweb		 # generates the html based visualization of mutated proteins on BioGrid db.
+					(NOTE: a user will required to specify the 'path/to/biog.txt' as input, when asked)
 
 #Contents:
 Introduction to different types of data (generated/provided in yMap)
@@ -313,7 +313,7 @@ hotspot()	PTMs containing motifs in a close proximity are named hotspots (Beltra
 Reason: unzip the data/PTMcode+PTMfunc_data/sc_btw_proteins.txt.zip did not worked in -d data command.
 how to correct: manually unzip the sc_btw_proteins.txt.zip file and run -d data (normally this will not needed)
 
-2 - $ python ymap.py -y genes gives an error message: 
+2 - $ ygenes gives an error message: 
 
 “IndexError: string index out of range”
 
