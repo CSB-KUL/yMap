@@ -1,0 +1,17 @@
+include *.py
+
+include *.txt
+
+include *.zip
+
+include *.md
+
+global-include ymap *.py
+
+global-include example_mutation_file *.txt
+
+global-include data *.txt *.zip
+
+prune tests *.py
+
+include *.cfg
