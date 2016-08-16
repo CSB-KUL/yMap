@@ -1,3 +1,5 @@
+yMap - Yeast Genotype to Phenotype Map (release year 2016)
+
 The MIT License (MIT)
 Copyright (c) <2016> <www.biw.kuleuven.be/CSB/>
 
