@@ -310,8 +310,8 @@ hotspot()	PTMs containing motifs in a close proximity are named hotspots (Beltra
 
 1 - The files of annotated PTMs are missing or less them nine.
 
-Reason: unzip the data/PTMcode+PTMfunc_data/sc_btw_proteins.txt.zip did not worked in ydata data command.
-how to correct: manually unzip the sc_btw_proteins.txt.zip file and run -d data (normally this will not needed)
+Reason: unzip the data/PTMcode+PTMfunc_data/sc_btw_proteins.txt.zip did not worked in $ ydata command.
+how to correct: manually unzip the sc_btw_proteins.txt.zip file and run $ ydata (normally this will not needed)
 
 2 - $ ygenes gives an error message: 
 
@@ -326,7 +326,7 @@ the proteins in starting file with correct mutation positions, user can use indi
 and functional_data(), to get all the analyses done, than execute the command-line step3)
 
 how to correct: Look at the positions of mutations and compare them manually if they correspond to start and end 
-positions of a protein, if not, correct the problem and re-run $ python ymap.py -y genes command.
+positions of a protein, if not, correct the problem and re-run $ ygenes command.
 
 
 # Contributors
