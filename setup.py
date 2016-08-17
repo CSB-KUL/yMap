@@ -24,16 +24,27 @@ setup(
 	license = "MIT",
 	
 	keywords = (
+		
 		'Biofinformatics',
+		
 		'Proteins variants',
+		
 		'PostTransational-Modifications (PTMs)',
+		
 		'Proteins domains',
+		
 		'Secondary Structures',
+		
 		'Protein-Protein Interactions',
+		
 		'Genomics',
+		
 		'Proteomics',
+		
 		'Gene Ontology',
+		
 		'yMap',
+	
 		),
 
 	classifiers=[ 
@@ -56,11 +67,15 @@ setup(
 	include_package_data = True,
 	
 	entry_points={
-        'console_scripts': [
-            'ydata=ymap.ymap:data',
-            'ygenes=ymap.ymap:ymap_genes',
-            'yproteins=ymap.ymap:ymap_proteins',
-            'yweb=ymap:web'
+        	'console_scripts': [
+            
+            		'ydata=ymap.ymap:data',
+            
+            		'ygenes=ymap.ymap:ymap_genes',
+            
+        		 'yproteins=ymap.ymap:ymap_proteins',
+            
+            		'yweb=ymap:web'
 
         ],
     }
