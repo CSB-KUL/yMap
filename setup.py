@@ -7,7 +7,7 @@ from distutils.core import setup
 setup(
 	name = "ymap",
 	
-	version = "1.2.2",
+	version = "2.0.1",
 	
 	description = "An automated method to map yeast variants to protein modifications and functional regions",
 	
