@@ -310,7 +310,7 @@ hotspot()	PTMs containing motifs in a close proximity are named hotspots (Beltra
 
 1 - The files of annotated PTMs are missing or less them nine.
 
-Reason: unzip the data/PTMcode+PTMfunc_data/sc_btw_proteins.txt.zip did not worked in -d data command.
+Reason: unzip the data/PTMcode+PTMfunc_data/sc_btw_proteins.txt.zip did not worked in ydata data command.
 how to correct: manually unzip the sc_btw_proteins.txt.zip file and run -d data (normally this will not needed)
 
 2 - $ ygenes gives an error message: 
