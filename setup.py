@@ -69,13 +69,13 @@ setup(
 	entry_points={
         	'console_scripts': [
             
-            		'ydata=ymap.ymap:data',
+            		'ydata = ymap.ymap:data',
             
-            		'ygenes=ymap.ymap:ymap_genes',
+            		'ygenes = ymap.ymap:ymap_genes',
             
-        		 'yproteins=ymap.ymap:ymap_proteins',
+        		 'yproteins = ymap.ymap:ymap_proteins',
             
-            		'yweb=ymap:web'
+            		'yweb = ymap.ymap:web'
 
         ],
     }
