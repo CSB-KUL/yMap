@@ -1590,8 +1590,7 @@ def ymap_proteins():
 def web(): 
     """ NOTE: to use the following function change to dir to respective folder to run web based analysis """   
     if not os.path.exists('biog.txt'):
-        raise StopIteration('because of missing BioGrid id file (biog.txt)')
-    else:
+        os.chdir(input('specify biog.txt path:'))
         c.bweb('biog.txt')
     return "Web is ready for networks exploration of mutated proteins"
 
