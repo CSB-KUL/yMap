@@ -964,25 +964,25 @@ def sum_file_map():
 
 def resc():
     try:
-        r = resource_stream("ymap", "/data/PTMcode+PTMfunc_data/3DID_aceksites_interfaceRes_sc.txt").read()
+        r = resource_stream("ymap", "/data/PTMcode+PTMfunc_data/3DID_aceksites_interfaceRes_sc.txt").read().decode()
         with open('3DID_aceksites_interfaceRes_sc.txt','w') as h:
             h.write(r+'\n')
     except IOError:
         pass
     try:
-        ri = resource_stream("ymap", "/data/PTMcode+PTMfunc_data/3DID_phosphosites_interfaceRes_sc.txt").read()
+        ri = resource_stream("ymap", "/data/PTMcode+PTMfunc_data/3DID_phosphosites_interfaceRes_sc.txt").read().decode()
         with open('3DID_phosphosites_interfaceRes_sc.txt','w') as hi:
             hi.write(ri+'\n')
     except IOError:
         pass
     try:
-        riu = resource_stream("ymap", "/data/PTMcode+PTMfunc_data/3DID_ubisites_interfaceRessc_sc.txt").read()
+        riu = resource_stream("ymap", "/data/PTMcode+PTMfunc_data/3DID_ubisites_interfaceRessc_sc.txt").read().decode()
         with open('3DID_ubisites_interfaceRessc_sc.txt','w') as hiu:
             hiu.write(riu+'\n')
     except IOError:
         pass
     try:
-        rac = resource_stream("ymap", "/data/PTMcode+PTMfunc_data/SC_acet_interactions.txt").read()
+        rac = resource_stream("ymap", "/data/PTMcode+PTMfunc_data/SC_acet_interactions.txt").read().decode()
         with open('SC_acet_interactions.txt','w') as hia:
             hia.write(rac+'\n')
     except IOError:
@@ -998,25 +998,25 @@ def resc():
     except IOError:
         pass
     try:
-        rps = resource_stream("ymap", "/data/PTMcode+PTMfunc_data/SC_psites_interactions_sc.txt").read()
+        rps = resource_stream("ymap", "/data/PTMcode+PTMfunc_data/SC_psites_interactions_sc.txt").read().decode()
         with open('SC_psites_interactions_sc.txt','w') as hip:
             hip.write(rps+'\n')
     except IOError:
         pass
     try:
-        rui = resource_stream("ymap", "/data/PTMcode+PTMfunc_data/SC_ubi_interactions_sc.txt").read()
+        rui = resource_stream("ymap", "/data/PTMcode+PTMfunc_data/SC_ubi_interactions_sc.txt").read().decode()
         with open('SC_ubi_interactions_sc.txt','w') as hui:
             hui.write(rui+'\n')
     except IOError:
         pass
     try:
-        rin = resource_stream("ymap", "/data/PTMcode+PTMfunc_data/sc_within_proteins.txt").read()
+        rin = resource_stream("ymap", "/data/PTMcode+PTMfunc_data/sc_within_proteins.txt").read().decode()
         with open('sc_within_proteins.txt','w') as hin:
             hin.write(rin+'\n')
     except IOError:
         pass
     try:
-        rsc = resource_stream("ymap", "/data/PTMcode+PTMfunc_data/schotspot_updated.txt").read()
+        rsc = resource_stream("ymap", "/data/PTMcode+PTMfunc_data/schotspot_updated.txt").read().decode()
         with open('schotspot_updated.txt','w') as his:
             his.write(rsc+'\n')
     except IOError:
