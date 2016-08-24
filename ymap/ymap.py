@@ -689,7 +689,7 @@ class YGtPM(object):
         fl = open(file1, 'rU')
         for f in OrderedDict.fromkeys(fl):
             f = f.split()
-            webbrowser.open(url + f[0])
+            webbrowser.open(url + f[1])
 
 
     def pdb_c(self, file_1):
