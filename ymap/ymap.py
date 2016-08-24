@@ -781,7 +781,7 @@ def interface(file1, mutation):
     """PTM present at the interface of two proteins and known to play role in interaction (Beltrao et al. Cell 2012)"""
     
     with open('interface_mutation.txt', 'w') as out:
-        with open(file1, 'rbU') as f:
+        with open(file1, 'rU') as f:
             for l in f:
                 line = l.split()
                 if len(line) > 5:
@@ -989,7 +989,7 @@ def resc():
         pass
     try:
         t = resource_stream("ymap", "/data/PTMcode+PTMfunc_data/sc_btw_proteins.txt.zip").read()
-        with open('sc_btw_proteins.txt.zip','w') as ht:
+        with open('sc_btw_proteins.txt.zip','wb') as ht:
             ht.write(t)
     except IOError:
         pass
