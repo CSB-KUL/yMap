@@ -328,6 +328,11 @@ and functional_data(), to get all the analyses done, than execute the command-li
 how to correct: Look at the positions of mutations and compare them manually if they correspond to start and end 
 positions of a protein, if not, correct the problem and re-run $ ygenes command.
 
+3 - yweb fails to locate the directory.
+
+how to correct: In python 2.x, the path should be given as “path/to/biog.txt” but in python 3.x it’s without inverted commas, 
+path/to/biog.txt
+
 
 # Contributors
 
