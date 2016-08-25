@@ -1,13 +1,26 @@
 #!/usr/bin/env python
 
+import sys
+import os
+import ez_setup
+ez_setup.use_setuptools()
 from setuptools import setup, find_packages
 from distutils.core import setup
 
+if sys.version_info >= (3,1):
+	install_require = ["Orange3"]
+
+elif sys.version_info < (3,0):
+	install_require = ["Orange"]
+
+
+def read(fname):
+    return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 setup(
 	name = "ymap",
 	
-	version = "2.0.1",
+	version = "2.0.6",
 	
 	description = "An automated method to map yeast variants to protein modifications and functional regions",
 	
@@ -22,6 +35,8 @@ setup(
 	maintainer_email = "ahmed.arslan@kuleuven.be",
 	
 	license = "MIT",
+	
+	long_description=read('README.md'),
 	
 	keywords = (
 		
@@ -58,13 +73,13 @@ setup(
     	'Programming Language :: Python :: 3.5',
     ],
 
-    	Package_data = {},
+    	install_requires = [install_require, "Orange-Bioinformatics"],
 
 	packages = ['ymap'],
-
-	install_requires = ["Orange-Bioinformatics", "Orange"],
 	
 	include_package_data = True,
+	
+	zip_safe = False,
 	
 	entry_points={
         	'console_scripts': [
@@ -75,7 +90,9 @@ setup(
             
         		 'yproteins = ymap.ymap:ymap_proteins',
             
-            		'yweb = ymap.ymap:web'
+            		'yweb = ymap.ymap:web',
+            		
+            		'test = ymap.tests:main',
 
         ],
     }
