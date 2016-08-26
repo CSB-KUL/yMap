@@ -27,7 +27,7 @@ The final-report is complemented with two other files; enrichment and visualsati
 
 yMap depends on:
 
-        python 2.7.x
+        python 2.6.x
 
         python 3.x
 
