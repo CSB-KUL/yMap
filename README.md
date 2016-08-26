@@ -51,6 +51,7 @@ yMap depends on:
             step4: $ yweb		 # generates the html based visualization of mutated proteins on BioGrid db.
 					(NOTE: a user will required to specify the 'path/to/biog.txt' as input, when asked)
 					
+
 *To run from source code:
 		Change path to directory containing ymap.py
 		$python ymap.py -d data (step1)
