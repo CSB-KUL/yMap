@@ -3,8 +3,8 @@ Name: ymap
 Version: 2.0.6
 Summary: An automated method to map yeast variants to protein modifications and functional regions
 Home-page: https://github.com/CSB-KUL/yMap
-Author: Ahmed Arslan
-Author-email: ahmed.arslan@kuleuven.be
+Author: Ahmed Arslan and Vera van Noort 
+Author-email: veravannoort@kuleuven.be
 License: MIT
 Description: "Functional impact analyses of yeast variations on functional regions of proteins including the PTMs"
 Platform: UNKNOWN
