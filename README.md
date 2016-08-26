@@ -58,7 +58,7 @@ yMap depends on:
 		
 		$python ymap.py -d data (step1)
 		
-		$pyhton ymap.py -p ymap_proteins (step2)
+		$pyhton ymap.py -p ymap_proteins (step3)
 		
 		$pyhton ymap.py -g ymap_genes (step3)
 		
