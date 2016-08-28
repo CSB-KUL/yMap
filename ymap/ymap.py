@@ -1679,22 +1679,22 @@ if __name__ == "__main__":
     parser.add_argument('-w', '--yweb', help='generates BioGrid web pages for interactome visualisation; paste the path to biog.txt file')
 
     args = parser.parse_args()
-    if args.data:
+    if args.ydata:
         try:
             data()
         except IOError:
             pass
-    elif args.ymap_genes:
+    elif args.ygenes:
         try:
             ymap_genes()
         except IOError:
             pass
-    elif args.ymap_proteins:
+    elif args.yproteins:
         try:
             ymap_proteins()
         except IOError:
             pass
-    elif args.web: 
+    elif args.yweb: 
         os.chdir(input('specify biog.txt path:'))   # specify biog.txt path:'/yMap-results78.50792193412781'
         try:
             web()
