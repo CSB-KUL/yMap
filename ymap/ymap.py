@@ -1657,9 +1657,7 @@ def ymap_proteins():
 
 def web(): 
     """ NOTE: to use the following function change to dir to respective folder to run web based analysis """   
-    if not os.path.exists('biog.txt'):
-        os.chdir(input('specify biog.txt path:'))
-        c.bweb('biog.txt')
+    c.bweb('biog.txt')
     return "Web is ready for networks exploration of mutated proteins"
 
 def path():
@@ -1676,8 +1674,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     
     parser.add_argument('-d', '--data', help='downloads required data to run yMap successfully')
-    parser.add_argument('-g','--ymap_genes', help='performs the yMap on genes level mutation positions')
-    parser.add_argument('-p', '--ymap_proteins', help='performs the yMap on proteins level mutation positions')
+    parser.add_argument('-g','--ygenes', help='performs the yMap on genes level mutation positions')
+    parser.add_argument('-p', '--yproteins', help='performs the yMap on proteins level mutation positions')
     parser.add_argument('-w', '--web', help='generates BioGrid web pages for interactome visualisation; paste the path to biog.txt file')
 
     args = parser.parse_args()
