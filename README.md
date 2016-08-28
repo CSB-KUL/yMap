@@ -62,7 +62,7 @@ yMap depends on:
 		
 		$pyhton ymap.py -g ygenes (step3)
 		
-		$pyhton ymap.py -w web (step4)
+		$pyhton ymap.py -w yweb (step4)
 
 #Contents:
 Introduction to different types of data (generated/provided in yMap)
