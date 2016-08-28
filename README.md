@@ -56,11 +56,11 @@ yMap depends on:
 
 		Change path to directory containing ymap.py
 		
-		$python ymap.py -d data (step1)
+		$python ymap.py -d ydata (step1)
 		
-		$pyhton ymap.py -p ymap_proteins (step3)
+		$pyhton ymap.py -p yproteins (step3)
 		
-		$pyhton ymap.py -g ymap_genes (step3)
+		$pyhton ymap.py -g ygenes (step3)
 		
 		$pyhton ymap.py -w web (step4)
 
