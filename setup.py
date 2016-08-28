@@ -20,7 +20,7 @@ def read(fname):
 setup(
 	name = "ymap",
 	
-	version = "2.0.6",
+	version = "2.0.6a",
 	
 	description = "An automated method to map yeast variants to protein modifications and functional regions",
 	
