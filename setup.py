@@ -92,7 +92,7 @@ setup(
             
             		'yweb = ymap.ymap:web',
             		
-            		'test = ymap.tests:main',
+            		'ytest = ymap.tests:main',
 
         ],
     }
