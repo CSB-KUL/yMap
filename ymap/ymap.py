@@ -1673,7 +1673,7 @@ if __name__ == "__main__":
     
     parser = argparse.ArgumentParser()
     
-    parser.add_argument('-d', '--data', help='downloads required data to run yMap successfully')
+    parser.add_argument('-d', '--ydata', help='downloads required data to run yMap successfully')
     parser.add_argument('-g','--ygenes', help='performs the yMap on genes level mutation positions')
     parser.add_argument('-p', '--yproteins', help='performs the yMap on proteins level mutation positions')
     parser.add_argument('-w', '--web', help='generates BioGrid web pages for interactome visualisation; paste the path to biog.txt file')
