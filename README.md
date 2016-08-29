@@ -37,6 +37,8 @@ yMap depends on:
 	
 [![Alt text for your video](http://img.youtube.com/vi/pcmkuWvLRzI/0.jpg)](https://www.youtube.com/watch?v=pcmkuWvLRzI)
 
+#PyPi 
+https://pypi.python.org/pypi
 
 #Installation
 
