@@ -35,7 +35,7 @@ yMap depends on:
 
 #Video demo
 	
-	[![Alt text for your video](http://img.youtube.com/vi/pcmkuWvLRzI/0.jpg)](www.youtube.com/watch?v=pcmkuWvLRzI)
+	[![ScreenShot](http://img.youtube.com/vi/pcmkuWvLRzI/0.jpg)](www.youtube.com/watch?v=pcmkuWvLRzI)
 
 #Installation
 
