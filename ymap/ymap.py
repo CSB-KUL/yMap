@@ -1657,6 +1657,7 @@ def ymap_proteins():
 
 def web(): 
     """ NOTE: to use the following function change to dir to respective folder to run web based analysis """   
+    os.chdir(input('specify biog.txt path:'))   # specify biog.txt path:/yMap-results78.50792193412781
     c.bweb('biog.txt')
     return "Web is ready for networks exploration of mutated proteins"
 
@@ -1694,8 +1695,7 @@ if __name__ == "__main__":
             ymap_proteins()
         except IOError:
             pass
-    elif args.yweb: 
-        os.chdir(input('specify biog.txt path:'))   # specify biog.txt path:'/yMap-results78.50792193412781'
+    elif args.yweb:
         try:
             web()
         except IOError:
