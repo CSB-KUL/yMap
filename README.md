@@ -21,7 +21,7 @@ with annotated PTMs like PTMcode 2.0 and PTMfunc, for more details, see below.
 
 In a user friendly three steps, it generates a "final-report" file to report all the non-synonymous 
 mutations that overlaps or falls inside the above mentioned proteins functional regions.
-The final-report is complemented with two other files; enrichment and visualsation id file
+The final-report is complemented with two other files; enrichment and visualisation id file
 
 #Dependencies
 
