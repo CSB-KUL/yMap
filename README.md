@@ -35,8 +35,8 @@ yMap depends on:
 
 #Video demo
 	
-	[![Alt text for your video](http://img.youtube.com/vi/pcmkuWvLRzI/0.jpg)](https://www.youtube.com/watch?v=pcmkuWvLRzI)
-	[yMap](https://www.youtube.com/watch?v=pcmkuWvLRzI)
+[![Alt text for your video](http://img.youtube.com/vi/pcmkuWvLRzI/0.jpg)](https://www.youtube.com/watch?v=pcmkuWvLRzI)
+
 
 #Installation
 
