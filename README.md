@@ -35,7 +35,7 @@ yMap depends on:
 
 #Video demo
 	
-	URL: www.youtube.com/watch?v=pcmkuWvLRzI
+	[![yMap](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/ymap.jpg)](www.youtube.com/watch?v=pcmkuWvLRzI)
 
 #Installation
 
