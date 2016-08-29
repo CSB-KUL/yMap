@@ -46,7 +46,7 @@ yMap depends on:
             step3: $ yproteins  	#if starting file contains the mutations at proteins level 
                                         (SEE example_mutation_file/mutation.txt).
             
-            step3: $ ygenes        	#if starting file contains the mutations at chromosomes leve with genetic                                                    coordinates (SEE example_mutation_file/mutated_proteins.txt).
+            step3: $ ygenes        	#if starting file contains the mutations at chromosomes level with genetic                                                    coordinates (SEE example_mutation_file/mutated_proteins.txt).
             
             step4: $ yweb		 # generates the html based visualization of mutated proteins on BioGrid db.
 					(NOTE: a user will required to specify the 'path/to/biog.txt' as input, when asked)
