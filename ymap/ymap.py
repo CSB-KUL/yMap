@@ -490,36 +490,20 @@ class YGtPM(object):
         """ This method performed enrichment analysis of mutated proteins and
         return the p value of functional enrichment of mutated proteins functional regions/residues; 
         see main text for how pvalue is calculated"""
-
+        k = []
         with open('pvalue.txt','w') as out:
             with open(file1, 'rU') as f:
-                for line in f:
-                    line=line.split()
-                    res = annotations.get_enriched_terms(line)
-                    if len(res) == 0:
-                        out = open('pvalue.txt','a')
+                k = [(line.split())[1] for line in f]
+                res = annotations.get_enriched_terms(k)
+                if len(res) == 0:
+                    with open('pvalue.txt','a') as out:
                         out.write('No enrichment found')
-                    else:
-                        for go_id, (genes, p_value, ref) in list(res.items()):
-                            if p_value < 0.002:
-                                take = ontology[go_id].name, p_value, ''.join(genes)
-                                with open('pvalue.txt','a') as out:
-                                    out.write(str(take))
-                                    continue
-                            if p_value < 0.005:
-                                take1 = ontology[go_id].name, p_value, ''.join(genes)
-                                with open('pvalue.txt','a+') as out:
-                                    out.write(str(take1))
-                                    continue
-                            if p_value < 0.02:
-                                take2 = ontology[go_id].name, p_value, ''.join(genes)
-                                with open('pvalue.txt','a+') as out:
-                                    out.write(str(take2))
-                                    continue
-                            if p_value < 0.05:
-                                take3 = ontology[go_id].name, p_value, ''.join(genes)
-                                with open('pvalue.txt','a+') as out:
-                                    out.write(str(take3))
+                else:
+                    for go_id, (genes, p_value, ref) in list(res.items()):
+                        if p_value < 0.05 and len(genes) >= 2:
+                            with open('pvalue.txt','a+') as out:
+                                out.write(ontology[go_id].name + '\t'+ '%.2E' %Decimal(p_value) + '\t'+",".join(genes) +'\t'+ str(ref) +'\n')
+                               
 
 
     def ab(self, file_raw): 
@@ -1593,8 +1577,8 @@ def ymap_genes():
             shutil.move(wd+"/"+'final_report.txt', wd+"/"+'yMap-results'+str(y))
             shutil.move(wd+"/"+'pvalue.txt', wd+"/"+'yMap-results'+str(y))
             shutil.move(wd+"/"+'biog.txt', wd+"/"+'yMap-results'+str(y))
-            shutil.move(wd+"/"+'summary.txt', wd+"/"+'yMap-results'+str(y))
             os.remove(wd+"/"+'mutation_id.txt')
+            os.remove(wd+"/"+'summary.txt')
         except IOError: 
             pass
         return "All functional data from genomic coordinates is ready in about %s seconds" % (time.time() - start_time)
@@ -1648,8 +1632,8 @@ def ymap_proteins():
             shutil.move(wd+"/"+'final_report.txt', wd+"/"+'yMap-results'+str(y))
             shutil.move(wd+"/"+'pvalue.txt', wd+"/"+'yMap-results'+str(y))
             shutil.move(wd+"/"+'biog.txt', wd+"/"+'yMap-results'+str(y))
-            shutil.move(wd+"/"+'summary.txt', wd+"/"+'yMap-results'+str(y))
             os.remove(wd+"/"+'mutation_id.txt')
+            os.remove(wd+"/"+'summary.txt')
         except IOError: 
             pass
         return "All functional data from proteins mutation-positions is ready in about %s seconds" % (time.time() - start_time)
