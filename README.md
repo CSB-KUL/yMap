@@ -239,7 +239,7 @@ id_nucleotide.txt
 		contains pathways enrichments for each type of mutation observed (this file present in each subfolder).
 
 	final_report.txt		
-		its a refined version of summary.txt and contains, protein UniProt id, common names, amino acid mutation position, wild type amino acid, mutated amino acid, type of mutation (non-synonymous/stop codon), mutation feature types (i.e. PTM-type or domain-name etc), mutation feature (i.e. PTMs, domain or another) and source of data (e.g. UnProt)
+		its a refined version of summary.txt and contains, protein UniProt id, common names, amino acid mutation position, wild type amino acid, mutated amino acid, type of mutation (non-synonymous/stop codon), mutation feature types (i.e. PTM-type or domain-name etc), mutation feature (i.e. PTMs, domain or another) and source of data (e.g. UniProt)
 
 
 
