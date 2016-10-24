@@ -352,7 +352,7 @@ path/to/biog.txt
 
 
 # Reference
-Ahmed Arslan and Vera van Noort, yMap: An automated method to map yeast variants to protein modifications and functional regions
+**Ahmed Arslan and Vera van Noort**, *yMap: An automated method to map yeast variants to protein modifications and functional regions*
 Bioinformatics October 22, 2016 doi:10.1093/bioinformatics/btw658
 
 # Contributors
