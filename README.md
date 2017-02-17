@@ -359,4 +359,4 @@ Bioinformatics October 22, 2016 doi:10.1093/bioinformatics/btw658
 
             http://www.biw.kuleuven.be/CSB/
             
-This work in supported by KU Leuven research fund. 
+This work is supported by KU Leuven research fund. 
