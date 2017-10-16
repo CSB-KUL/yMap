@@ -1,5 +1,5 @@
 import unittest
-from ymap import data, ymap_proteins, ymap_genes, web
+from ymap.ymap import data, ymap_proteins, ymap_genes, web
 
 class PimpMyPackage(unittest.TestCase):
 	def test_data(self):
