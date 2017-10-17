@@ -31,14 +31,14 @@ from __future__ import print_function
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import unicode_literals
-try:
-    from builtins import next
-    from builtins import str
-    from builtins import range
-    from builtins import object
-    from builtins import bytes
-except ImportError:
-    pass
+#try:
+#    from builtins import next
+#    from builtins import str
+#    from builtins import range
+#    from builtins import object
+#    from builtins import bytes
+#except ImportError:
+#    pass
 import os
 import sys
 import math
@@ -262,10 +262,8 @@ class YGtPM(object):
         fil = open('uniprot_mod_raw.txt','wb')
         fil.write(page)
         fil.close()
-    
-    
-    def clean(self, UniProt_file):              
-        
+
+    def clean(self, UniProt_file):
         """ cleans file uniprot_mod_raw.txt into a tab separated PTMs.txt
         """
 
@@ -280,7 +278,9 @@ class YGtPM(object):
                             ll = ll[2].split('=')
                             p = line[0]+'\t'+line[4]+'\t'+ll[1]
                             if p > str(0):
-                                out = open('PTMs.txt', 'a')
+                                # PTMs.txt is already open under out and being opened again and again...
+                                # this could cause problems check if you cannot just remove all the opens...
+                                # out = open('PTMs.txt', 'a')
                                 out.write(p+'\n')
                                 continue
                         if line[2] == 'Glycosylation':
@@ -289,7 +289,7 @@ class YGtPM(object):
                             gg =  gg[2].split('=')
                             p1 = line[0]+'\t'+line[4]+'\t'+gg[1]
                             if p1 > str(0):
-                                out = open('PTMs.txt', 'a+')
+                                # out = open('PTMs.txt', 'a+')
                                 out.write(p1+'\n')
                                 continue
                         if line[2] == 'Modified':
@@ -299,7 +299,7 @@ class YGtPM(object):
                             mm = mm[1].split(';')
                             p2 = line[0]+'\t'+line[4]+'\t'+mm[0]
                             if p2 > str(0):
-                                out = open('PTMs.txt', 'a+')
+                                #out = open('PTMs.txt', 'a+')
                                 out.write(p2+'\n')
                                 continue
                         if line[2] == 'Cross-link': #ubiquitination
@@ -308,8 +308,8 @@ class YGtPM(object):
                             cc = cc[2].split('=')
                             p3 = line[0]+'\t'+line[4]+'\t'+cc[1]
                             if p3 > str(0):
-                                with open('PTMs.txt', 'a+') as out:
-                                    out.write(p3+'\n')
+                                #with open('PTMs.txt', 'a+') as out:
+                                out.write(p3+'\n')
 
 
     def iD(self):
@@ -321,10 +321,10 @@ class YGtPM(object):
         file_1.write(page1)
         file_1.close()
         
-            
+    # TODO: there seems to be a serious bit of optimization possible here. The second input file should be opened once
     def pmap(self, file_id, file_PTMs):          
-
-        """ if proteins ids are not SDG or uniprot or common names, this method maps the ids 
+        """
+        if proteins ids are not SDG or uniprot or common names, this method maps the ids
         """
         with open('PTM_id_file.txt', 'w') as file3:
             with open(file_id, 'r') as file_id_name:
@@ -337,7 +337,7 @@ class YGtPM(object):
                                 if line[0] == i[0]:
                                     result3 = line[0]+'\t'+line[1]+'\t'+line[2]+'\t'+i[1]+'\t'+i[2]
                                     if result3 > str(0):
-                                        file3 = open('PTM_id_file.txt', 'a')
+                                        #  file3 = open('PTM_id_file.txt', 'a')
                                         file3.write(result3+'\n')
                                              
 
@@ -909,7 +909,11 @@ def betweenPro(fileb, mutation):
                                                 with open('ptm_between_proteins.txt', 'a+') as file1:
                                                     file1.write(take3+'\n')
 
-    
+
+# TODO: yeastID.txt is openen each line of mutation, suggestion to open it once store the di[0] and d1[2] in a
+# dictionary di[2] as keys list of di[0]'s as  values, for a given fi[1] you can then retreive all corresponging di[0]'s
+# don't open hotspot again and again it is already
+# there are many other cases where something similar hapens
 def hotspot(fileh, mutation):
 
     """ PTMs containing motifs in a close proximity are named hotspots (Beltrao et al. Cell 2012)"""
@@ -947,6 +951,10 @@ def sum_file_map():
 
 
 def resc():
+    """
+    documentation needed....
+    """
+
     try:
         r = resource_stream("ymap", "/data/PTMcode+PTMfunc_data/3DID_aceksites_interfaceRes_sc.txt").read().decode()
         with open('3DID_aceksites_interfaceRes_sc.txt','w') as h:
@@ -1019,6 +1027,7 @@ def resc():
 c = YGtPM()
 wd = os.getcwd()
 
+# TODO : remove the variables that store the resutls of the functions that don't return anything
 def data(): 
 
     """ this function will download and clean required data to run ymap methods smoothly """
@@ -1029,15 +1038,15 @@ def data():
     except IOError:
         pass
     try:
-        dat = c.pTMdata()
+        c.pTMdata()
     except IOError:
         pass
     try:
-        cl = c.clean('uniprot_mod_raw.txt')
+        c.clean('uniprot_mod_raw.txt')
     except IOError:
         pass
     try:
-        i = c.iD()
+        c.iD()  # this method does not return anything, all the rest below also don't
     except IOError:
         pass
     try:
@@ -1659,9 +1668,10 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     
     parser.add_argument('-d', '--ydata', help='downloads required data to run yMap successfully')
-    parser.add_argument('-g','--ygenes', help='performs the yMap on genes level mutation positions')
+    parser.add_argument('-g', '--ygenes', help='performs the yMap on genes level mutation positions')
     parser.add_argument('-p', '--yproteins', help='performs the yMap on proteins level mutation positions')
-    parser.add_argument('-w', '--yweb', help='generates BioGrid web pages for interactome visualisation; paste the path to biog.txt file')
+    parser.add_argument('-w', '--yweb', help='generates BioGrid web pages for interactome visualisation; '
+                                             'paste the path to biog.txt file')
 
     args = parser.parse_args()
     if args.ydata:
