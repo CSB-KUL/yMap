@@ -280,7 +280,7 @@ class YGtPM(object):
                             if p > str(0):
                                 # PTMs.txt is already open under out and being opened again and again...
                                 # this could cause problems check if you cannot just remove all the opens...
-                                # out = open('PTMs.txt', 'a')
+                                #out = open('PTMs.txt', 'a')
                                 out.write(p+'\n')
                                 continue
                         if line[2] == 'Glycosylation':
@@ -289,7 +289,7 @@ class YGtPM(object):
                             gg =  gg[2].split('=')
                             p1 = line[0]+'\t'+line[4]+'\t'+gg[1]
                             if p1 > str(0):
-                                # out = open('PTMs.txt', 'a+')
+                                #out = open('PTMs.txt', 'a+')
                                 out.write(p1+'\n')
                                 continue
                         if line[2] == 'Modified':

@@ -58,8 +58,8 @@ class YGtPMTest(unittest.TestCase):
         except:
             shutil.copy(os.path.join(ref_dir, 'uniprot_mod_raw.txt'), '.')
         self.assertTrue(os.path.isfile('uniprot_mod_raw.txt'))
-
         self.c.clean('uniprot_mod_raw.txt')  # produces PTMs.txt
+
         self.assertTrue(os.path.isfile('PTMs.txt'))
         if self.store_ref:
             shutil.copy('PTMs.txt', ref_dir)  # saving the reference data
