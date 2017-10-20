@@ -31,14 +31,14 @@ from __future__ import print_function
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import unicode_literals
-#try:
-#    from builtins import next
-#    from builtins import str
-#    from builtins import range
-#    from builtins import object
-#    from builtins import bytes
-#except ImportError:
-#    pass
+try:
+    from builtins import next
+    from builtins import str
+    from builtins import range
+    from builtins import object
+    from builtins import bytes
+except ImportError:
+    pass
 import os
 import sys
 import math
@@ -1050,27 +1050,27 @@ def data():
     except IOError:
         pass
     try:
-        m = c.pmap('yeastID.txt', 'PTMs.txt')
+        c.pmap('yeastID.txt', 'PTMs.txt')
     except IOError:
         pass
     try:
-        d = c.dclean('uniprot_mod_raw.txt')
+        c.dclean('uniprot_mod_raw.txt')
     except IOError:
         pass
     try:
-        dm = c.d_map('yeastID.txt', 'domains.txt')
+        c.d_map('yeastID.txt', 'domains.txt')
     except IOError:
         pass
     try:
-        ab = c.ab('uniprot_mod_raw.txt')
+        c.ab('uniprot_mod_raw.txt')
     except IOError:
             pass
     try:
-        ii = c.id('bact.txt', 'yeast_id.txt')
+        c.id('bact.txt', 'yeast_id.txt')
     except IOError:
             pass
     try:
-        bio=c.bioGrid()
+        c.bioGrid()
     except IOError:
             pass
     try:
@@ -1696,4 +1696,3 @@ if __name__ == "__main__":
             pass
     else:
         print ("to run a function seek help")
-
